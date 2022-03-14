@@ -246,7 +246,7 @@ select :before_count+1=:add_one_count;
 CALL run_job(:drop_chunks_job_id);
 SELECT count(*) FROM _timescaledb_catalog.chunk as c, _timescaledb_catalog.hypertable as ht where c.hypertable_id = ht.id and ht.table_name='test_table_int' \gset after_
 
--- (-1,-1) was in droping range so it should be dropped by background job
+-- (-1,-1) was in dropping range so it should be dropped by background job
 select :before_count=:after_count;
 
 select set_integer_now_func('test_table_int', 'dummy_now2', replace_if_exists=>true);
