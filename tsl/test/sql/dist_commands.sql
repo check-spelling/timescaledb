@@ -198,7 +198,7 @@ DROP EXTENSION postgres_fdw;
 --
 -- In this case, we only execute it on one data node since we are
 -- creating a database and multiple creations of the database would
--- clash when executed on the same instace.
+-- clash when executed on the same instance.
 --
 -- We prefix the database names with the test file to be able to
 -- parallelize the test. Not possible right now because there are
