@@ -14,7 +14,7 @@ CREATE OR REPLACE FUNCTION ts_decompress_table(in_table REGCLASS, out_table REGC
 \c :TEST_DBNAME :ROLE_DEFAULT_PERM_USER
 
 -- column name, algorithm, idx, asc, nulls_first
---no sgement_byindex (use 0 to indicate that)
+--no segment_byindex (use 0 to indicate that)
 CREATE FUNCTION ord(TEXT, INT, INT, BOOL = true, BOOL = false)
     RETURNS _timescaledb_catalog.hypertable_compression
     AS $$
