@@ -186,7 +186,7 @@ ts_remote_exec(PG_FUNCTION_ARGS)
 		/* Configure connection to be compatible with current options of the test env */
 		set_connection_settings(conn);
 
-		/* Split query into separate commands using ';' as a delimeter */
+		/* Split query into separate commands using ';' as a delimiter */
 		split_query_and_execute(conn, node_name, sql);
 
 		/* Restore original connection settings */
