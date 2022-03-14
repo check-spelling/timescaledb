@@ -452,7 +452,7 @@ NOTICE:  f_leak => my second manga
   44 |   5 |      2 | regress_rls_bob | my second manga    | manga
 (5 rows)
 
--- viewpoint from rls_regres_carol again
+-- viewpoint from regress_rls_carol again
 SET SESSION AUTHORIZATION regress_rls_carol;
 SELECT * FROM document WHERE f_leak(dtitle) ORDER BY did;
 NOTICE:  f_leak => great science fiction
@@ -1356,7 +1356,7 @@ NOTICE:  f_leak => my history book
    5 |  99 |      2 | regress_rls_bob | my history book
 (5 rows)
 
--- viewpoint from rls_regres_carol again
+-- viewpoint from regress_rls_carol again
 SET SESSION AUTHORIZATION regress_rls_carol;
 SELECT * FROM hyper_document WHERE f_leak(dtitle) ORDER BY did, cid;
 NOTICE:  f_leak => great science fiction
