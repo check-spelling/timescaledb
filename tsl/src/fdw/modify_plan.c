@@ -87,7 +87,7 @@ get_chunk_data_nodes(Oid relid)
  * TimescaleDBs unique INSERT path. We'd like to plan the INSERT as if it
  * would happen on the root of the hypertable. This is useful because INSERTs
  * should occur via the top-level hypertables on the data nodes
- * (preferrably batched), and not once per individual remote chunk
+ * (preferably batched), and not once per individual remote chunk
  * (inefficient and won't go through the standard INSERT path on the data
  * node).
  *
