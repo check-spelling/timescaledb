@@ -519,7 +519,7 @@ chunk_collides(const Hypertable *ht, const Hypercube *hc)
 }
 
 /*-
- * Resolve collisions and perform alignmment.
+ * Resolve collisions and perform alignment.
  *
  * Chunks collide only if their hypercubes overlap in all dimensions. For
  * instance, the 2D chunks below collide because they overlap in both the X and
