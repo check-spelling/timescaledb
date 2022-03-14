@@ -303,7 +303,7 @@ test_timeout()
 }
 
 static void
-test_multiple_reqests()
+test_multiple_requests()
 {
 	TSConnection *conn = get_connection();
 	AsyncRequest *req1;
@@ -333,7 +333,7 @@ ts_test_remote_async(PG_FUNCTION_ARGS)
 	test_parameter_order();
 	test_request_set();
 	test_node_death();
-	test_multiple_reqests();
+	test_multiple_requests();
 	test_timeout();
 
 	PG_RETURN_VOID();
