@@ -68,7 +68,7 @@ SELECT * from disttable2;
 \set ECHO all
 
 -- Register_is_access_node_session_on_data_node() function and test that it returns false for
--- connections opened by test suite. This simualates behaviour expected
+-- connections opened by test suite. This simulates behaviour expected
 -- with a client connections.
 CREATE OR REPLACE FUNCTION is_access_node_session_on_data_node()
 RETURNS BOOL
