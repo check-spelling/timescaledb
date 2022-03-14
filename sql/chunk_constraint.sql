@@ -37,7 +37,7 @@ BEGIN
         IF constraint_type IN ('p','u') THEN
           -- since primary keys and unique constraints are backed by an index
           -- they might have an index tablespace assigned
-          -- the tablspace is not part of the constraint definition so
+          -- the tablespace is not part of the constraint definition so
           -- we have to append it explicitly to preserve it
           SELECT T.spcname INTO indx_tablespace
           FROM pg_constraint C, pg_class I, pg_tablespace T
