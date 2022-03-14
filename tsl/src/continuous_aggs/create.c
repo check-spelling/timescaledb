@@ -1639,7 +1639,7 @@ add_partialize_column(Aggref *agg_to_partialize, AggPartCxt *cxt)
 									  cxt->original_query_resno);
 	cxt->addcol = true;
 	/* step 2: create finalize_agg expr using var
-	 * for the clumn added to the materialization table
+	 * for the column added to the materialization table
 	 */
 	/* This is a var for the column we created */
 	newagg = get_finalize_aggref(agg_to_partialize, var);

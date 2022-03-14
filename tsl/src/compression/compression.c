@@ -354,7 +354,7 @@ compress_chunk_populate_keys(Oid in_table, const ColumnCompressionInfo **columns
 	for (i = 0; i < n_columns; i++)
 	{
 		const ColumnCompressionInfo *column = columns[i];
-		/* valid values for segmentby_columnn_index and orderby_column_index
+		/* valid values for segmentby_column_index and orderby_column_index
 		   are > 0 */
 		int16 segment_offset = column->segmentby_column_index - 1;
 		int16 orderby_offset = column->orderby_column_index - 1;
