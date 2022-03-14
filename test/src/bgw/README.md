@@ -25,7 +25,7 @@ which must be created in order for tests to check background worker output.
 worker messages sent since the table was created; `mock_time` is the
 virtualized timestamp ([see that section](## Timer)) at which the message was
 written; `application_name` the name of the application that wrote the message;
-`msg` is the messgage string itself.
+`msg` is the message string itself.
 
 See [`log.c`](log.c) for more detail.
 
