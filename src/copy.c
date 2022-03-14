@@ -125,7 +125,7 @@ copyfrom(CopyChunkState *ccstate, List *range_table, Hypertable *ht, void (*call
 	ResultRelInfo *saved_resultRelInfo = NULL;
 	/* if copies are directed to a chunk that is compressed, we redirect
 	 * them to the internal compressed chunk. But we still
-	 * need to check triggers, constrainst etc. against the original
+	 * need to check triggers, constraints etc. against the original
 	 * chunk (not the internal compressed chunk).
 	 * check_resultRelInfo saves that information
 	 */
