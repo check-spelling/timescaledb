@@ -126,7 +126,7 @@ permutation "LockChunk1" "C1" "I1" "UnlockChunk" "Cc" "Ic"
 permutation "LockChunk1" "A1" "C1" "UnlockChunk" "Cc" "A2"
 permutation "LockChunk1" "A1" "C1" "UnlockChunk" "A2" "Cc"
 
-#concurrent compress/deocmpress on same chunk errors
+#concurrent compress/decompress on same chunk errors
 permutation "LockChunk1" "C1" "D1" "UnlockChunk" "Cc" "Dc"
 
 #concurrent compress and select should execute concurrently

@@ -60,7 +60,7 @@ SELECT format('\! diff -u --label "Source results" --label "Target results" %s %
 -- Compare results between CAggs and Original View (to check PG and TSDB machinery)
 :DIFF_CMD
 
--- Decompres 1 chunk from cagg
+-- Decompress 1 chunk from cagg
 SELECT CASE WHEN res is NULL THEN NULL
             ELSE 'decompress'
        END as dec
