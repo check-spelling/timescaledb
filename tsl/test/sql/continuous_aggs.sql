@@ -937,7 +937,7 @@ CALL refresh_continuous_aggregate('mat_types',NULL,NULL);
 SELECT * FROM mat_types;
 
 -------------------------------------------------------------------------------------
--- Test issue #2616 where cagg view contains an experssion with several aggregates in
+-- Test issue #2616 where cagg view contains an expression with several aggregates in
 
 CREATE TABLE water_consumption
 (

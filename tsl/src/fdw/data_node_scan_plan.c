@@ -346,7 +346,7 @@ force_group_by_push_down(PlannerInfo *root, RelOptInfo *hyper_rel)
  * Check if it is safe to push down GROUP BYs to remote nodes. A push down is
  * safe if the chunks that are part of the query are disjointedly partitioned
  * on data nodes along the first closed "space" dimension, or all dimensions are
- * covered in the GROUP BY expresssion.
+ * covered in the GROUP BY expression.
  *
  * If we knew that the GROUP BY covers all partitioning keys, we would not
  * need to check overlaps. Such a check is done in
