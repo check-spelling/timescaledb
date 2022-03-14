@@ -139,7 +139,7 @@ dist_ddl_state_add_remote_command_list(List *list)
  *
  * There are two ways to execute distributed DDL query: START and END.
  * START executes inside the process utility hook right after the processing is done.
- * END is execution is delayed, and done from ddl_command_start hook invokation.
+ * END is execution is delayed, and done from ddl_command_start hook invocation.
  */
 static inline void
 dist_ddl_state_set_exec_type(DistDDLExecType type)
