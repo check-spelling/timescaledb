@@ -657,8 +657,8 @@ get_single_response_nonblocking(AsyncRequestSet *set)
 }
 
 /*
- * wait_to_consume_data waits until data is recieved and put into buffers
- * so that it can be recieved without blocking by `get_single_response_nonblocking`
+ * wait_to_consume_data waits until data is received and put into buffers
+ * so that it can be received without blocking by `get_single_response_nonblocking`
  * or similar.
  *
  * Returns NULL on success or an "error" AsyncResponse
