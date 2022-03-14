@@ -106,7 +106,7 @@ SET timescaledb.debug_optimizer_flags = 'show_upper=xxx,*';
 ERROR:  unrecognized flag option "xxx"
 SET timescaledb.debug_optimizer_flags = 'show_upper=xxx,*,yyy';
 ERROR:  unrecognized flag option "xxx"
-SET timescaledb.debug_optimizer_flags = 'show_upper=supercalifragilisticexpialidochious';
+SET timescaledb.debug_optimizer_flags = 'show_upper=supercalifragilisticexpialidocious';
 ERROR:  unrecognized flag option "supercalifragili..."
 SET timescaledb.debug_optimizer_flags = 'show_upper=super,califragilisticexpialidochious';
 ERROR:  unrecognized flag option "super"

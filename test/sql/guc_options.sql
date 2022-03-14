@@ -42,6 +42,6 @@ SET timescaledb.debug_optimizer_flags = 'show_upper=xxx';
 SET timescaledb.debug_optimizer_flags = 'show_upper=*,xxx';
 SET timescaledb.debug_optimizer_flags = 'show_upper=xxx,*';
 SET timescaledb.debug_optimizer_flags = 'show_upper=xxx,*,yyy';
-SET timescaledb.debug_optimizer_flags = 'show_upper=supercalifragilisticexpialidochious';
+SET timescaledb.debug_optimizer_flags = 'show_upper=supercalifragilisticexpialidocious';
 SET timescaledb.debug_optimizer_flags = 'show_upper=super,califragilisticexpialidochious';
 \set ON_ERROR_STOP 1
