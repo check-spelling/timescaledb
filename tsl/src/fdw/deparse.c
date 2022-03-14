@@ -1298,7 +1298,7 @@ append_chunk_exclusion_condition(deparse_expr_cxt *context, bool use_alias)
 		appendStringInfo(buf, "%s%d, ", REL_ALIAS_PREFIX, scanrel->relid);
 	else
 	{
-		/* use a qualfied relation name */
+		/* use a qualified relation name */
 		RangeTblEntry *rte = planner_rt_fetch(scanrel->relid, context->root);
 		Relation rel = table_open(rte->relid, NoLock);
 		deparseRelation(buf, rel);
