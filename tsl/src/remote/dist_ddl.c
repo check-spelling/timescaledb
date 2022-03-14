@@ -1258,7 +1258,7 @@ dist_ddl_drop(List *dropped_objects)
 			case EVENT_TRIGGER_DROP_INDEX:
 			{
 				/*
-				 * Skip here, bacause we expect CASCADE case to be handled in
+				 * Skip here, because we expect CASCADE case to be handled in
 				 * combination with DROP TABLE.
 				 */
 				break;

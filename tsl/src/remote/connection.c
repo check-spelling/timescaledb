@@ -1927,7 +1927,7 @@ remote_connection_cancel_query(TSConnection *conn)
 			case CONN_OK:
 				/* Successfully, drained */
 			case CONN_NO_RESPONSE:
-				/* No response, likely beceause there was nothing to cancel */
+				/* No response, likely because there was nothing to cancel */
 				success = true;
 				break;
 			default:
