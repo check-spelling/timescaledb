@@ -63,7 +63,7 @@ setup { SET lock_timeout = '500ms'; SET deadlock_timeout = '10ms'; }
 step "Refresh2"	{ CALL refresh_continuous_aggregate('continuous_view', NULL, 15); }
 teardown { SET lock_timeout TO default; SET deadlock_timeout to default; }
 
-# the invalidation log is copied in the first materialization tranasction
+# the invalidation log is copied in the first materialization transaction
 session "L"
 step "LockInval" { BEGIN; LOCK TABLE _timescaledb_catalog.continuous_aggs_hypertable_invalidation_log; }
 step "UnlockInval" { ROLLBACK; }

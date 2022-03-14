@@ -120,7 +120,7 @@ SET ROLE :ROLE_1;
 \set ON_ERROR_STOP 0
 \set VERBOSITY default
 BEGIN;
--- Not allowed in transcation block if transactional=false
+-- Not allowed in transaction block if transactional=false
 CALL distributed_exec_direct_function_call('CREATE TABLE dist_test(id int)', NULL, false);
 ROLLBACK;
 -- multi-dimensional array of data nodes
