@@ -552,7 +552,7 @@ fdw_scan_info_init(ScanInfo *scaninfo, PlannerInfo *root, RelOptInfo *rel, Path 
 	/*
 	 * Try to locally evaluate the stable functions such as now() before pushing
 	 * them to the remote node.
-	 * We have to do this at the execution stage as oppossed to the planning stage, because stable
+	 * We have to do this at the execution stage as opposed to the planning stage, because stable
 	 * functions must be recalculated with each execution of a prepared
 	 * statement.
 	 * Note that the query planner currently only pushes down to remote side
