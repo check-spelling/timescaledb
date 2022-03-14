@@ -2975,7 +2975,7 @@ process_create_table_end(Node *parsetree)
 }
 
 static inline const char *
-typename_get_unqual_name(TypeName *tn)
+typename_get_unqualified_name(TypeName *tn)
 {
 	return strVal(llast(tn->names));
 }
@@ -3008,7 +3008,7 @@ static void
 process_alter_column_type_end(Hypertable *ht, AlterTableCmd *cmd)
 {
 	ColumnDef *coldef = (ColumnDef *) cmd->def;
-	Oid new_type = TypenameGetTypid(typename_get_unqual_name(coldef->typeName));
+	Oid new_type = TypenameGetTypid(typename_get_unqualified_name(coldef->typeName));
 	Dimension *dim =
 		ts_hyperspace_get_mutable_dimension_by_name(ht->space, DIMENSION_TYPE_ANY, cmd->name);
 
