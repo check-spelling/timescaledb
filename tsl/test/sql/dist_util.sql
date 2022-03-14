@@ -3,7 +3,7 @@
 -- LICENSE-TIMESCALE for a copy of the license.
 
 ----------------------------------------------------------------
--- Test version compability function
+-- Test version compatibility function
 \c :TEST_DBNAME :ROLE_CLUSTER_SUPERUSER
 
 CREATE OR REPLACE FUNCTION compatible_version(version CSTRING, reference CSTRING)
