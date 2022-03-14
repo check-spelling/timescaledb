@@ -982,7 +982,7 @@ deparseDistinctClause(StringInfo buf, deparse_expr_cxt *context, List *pathkeys)
 	 *
 	 * The distinctClause entries will be referring to the
 	 * varno pulled above, so adjust the scanrel temporarily
-	 * for the deparsing of the distint clauses
+	 * for the deparsing of the distinct clauses
 	 *
 	 * Note that we deparse the targetlist below only for the
 	 * "DISTINCT ON" case. For DISTINCT, the regular targetlist

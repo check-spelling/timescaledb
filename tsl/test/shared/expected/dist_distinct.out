@@ -372,7 +372,7 @@ LIMIT 10;
  
 (69 rows)
 
-SELECT DISTINCE is pushed down in attribute attno order
+SELECT DISTINCT is pushed down in attribute attno order
 EXPLAIN (verbose, costs off)
 SELECT DISTINCT device_id, time
 FROM metrics_dist
