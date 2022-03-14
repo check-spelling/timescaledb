@@ -263,7 +263,7 @@ release_subtxn_pinned_caches(SubTransactionId subtxnid, bool abort)
 		if (cp->subtxnid == subtxnid)
 		{
 			/*
-			 * This assert makes sure that that we don't have a cache leak
+			 * This assert makes sure that we don't have a cache leak
 			 * when running with debugging
 			 */
 			Assert(abort);
@@ -311,7 +311,7 @@ cache_xact_end(XactEvent event, void *arg)
 				CachePin *cp = lfirst(lc);
 
 				/*
-				 * This assert makes sure that that we don't have a cache
+				 * This assert makes sure that we don't have a cache
 				 * leak when running with debugging
 				 */
 				Assert(!cp->cache->release_on_commit);
