@@ -3723,7 +3723,7 @@ ts_chunk_do_drop_chunks(Hypertable *ht, int64 older_than, int64 newer_than, int3
 		/* Invalidate the dropped region to indicate that it was modified.
 		 *
 		 * The invalidation will allow the refresh command on a continuous
-		 * aggregate to see that this region was dropped and and will
+		 * aggregate to see that this region was dropped and will
 		 * therefore be able to refresh accordingly.*/
 		for (i = 0; i < num_chunks; i++)
 		{
