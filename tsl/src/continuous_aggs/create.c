@@ -178,7 +178,7 @@ typedef struct CAggTimebucketInfo
 							/* This should also be the column used by time_bucket */
 	Oid htpartcoltype;
 	int64 htpartcol_interval_len; /* interval length setting for primary partitioning column */
-	int64 bucket_width;			  /* bucket_width of time_bucket, stores BUCKET_WIDHT_VARIABLE for
+	int64 bucket_width;			  /* bucket_width of time_bucket, stores BUCKET_WIDTH_VARIABLE for
 									 variable-sized buckets */
 	Interval *interval;			  /* stores the interval, NULL if not specified */
 	const char *timezone;		  /* the name of the timezone, NULL if not specified */
