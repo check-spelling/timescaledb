@@ -9,7 +9,7 @@
 --    2. Parse the constraint expression and extract the column name,
 --       and upper and lower range values as text or, if it is a
 --       partition constraint, pick the existing constraint (either
---       uppper or lower end of range) and make the other end open.
+--       upper or lower end of range) and make the other end open.
 --
 --    3. Use the column type to construct the range values (UNIX
 --       microseconds) from these strings.
