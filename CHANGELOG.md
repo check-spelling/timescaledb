@@ -2162,7 +2162,7 @@ complete, depending on the size of your database**
 
 **Thanks**
 * @raycheung for reporting a segfault in `first`/`last`
-* @meotimdihia, @noyez, and @andrew-blake for reporting issues with `UNQIUE` and other types of constraints
+* @meotimdihia, @noyez, and @andrew-blake for reporting issues with `UNIQUE` and other types of constraints
 
 
 ## 0.4.2 (2017-09-06)
