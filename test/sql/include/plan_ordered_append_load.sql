@@ -75,7 +75,7 @@ DROP INDEX :INDEX_NAME;
 
 ANALYZE ht_missing_indexes;
 
--- create hypertable with with dropped columns
+-- create hypertable with dropped columns
 CREATE TABLE ht_dropped_columns(c1 int, c2 int, c3 int, c4 int, c5 int, time timestamptz NOT NULL, device_id int, value float);
 
 SELECT create_hypertable('ht_dropped_columns','time');
