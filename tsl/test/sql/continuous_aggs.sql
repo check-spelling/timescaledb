@@ -1119,7 +1119,7 @@ SELECT * from search_query_count_3 ORDER BY 1, 2, 3;
 
 -- insert into a new region of the hypertable and then refresh the cagg
 -- (note we still do not support refreshes into existing regions.
--- cagg chunks do not map 1-1 to hypertabl regions. They encompass
+-- cagg chunks do not map 1-1 to hypertable regions. They encompass
 -- more data
 -- ).
 insert into raw_data select '2000-05-01 00:00+0','Q3', 0, 0;
