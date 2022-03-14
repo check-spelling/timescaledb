@@ -62,7 +62,7 @@ static SortInfo build_sortinfo(Chunk *chunk, RelOptInfo *chunk_rel, CompressionI
 
 /*
  * Like ts_make_pathkey_from_sortop but passes down the compressed relid so that existing
- * equivalence members that are marked as childen are properly checked.
+ * equivalence members that are marked as children are properly checked.
  */
 static PathKey *
 make_pathkey_from_compressed(PlannerInfo *root, Index compressed_relid, Expr *expr, Oid ordering_op,
