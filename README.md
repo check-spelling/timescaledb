@@ -158,7 +158,7 @@ multiple workers.
 ### Community & help
 
 - [Slack Channel](https://slack.timescale.com)
-- [Github Issues](https://github.com/timescale/timescaledb/issues)
+- [GitHub Issues](https://github.com/timescale/timescaledb/issues)
 - [Timescale Support](https://tsdb.co/GitHubTimescaleSupport): see support options (community & subscription)
 
 ### Releases & updates
