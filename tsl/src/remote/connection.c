@@ -56,7 +56,7 @@
  *   objects after a transaction completes.
  * - connection configuration suitable for TimescaleDB.
  *
- * NOTE that it is strongly adviced that connection-related functions do not
+ * NOTE that it is strongly advised that connection-related functions do not
  * throw exceptions with, e.g., elog(ERROR). While exceptions can be caught
  * with PG_TRY-CATCH for cleanup, it is not possible to safely continue the
  * transaction that threw the exception as if no error occurred (see the
