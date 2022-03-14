@@ -1204,7 +1204,7 @@ GROUP BY 1;
 psql:include/cagg_ddl_common.sql:803: NOTICE:  continuous aggregate "width_expr" is already up-to-date
 DROP MATERIALIZED VIEW width_expr;
 \set ON_ERROR_STOP 0
--- non-immutable expresions should be rejected
+-- non-immutable expressions should be rejected
 CREATE MATERIALIZED VIEW width_expr WITH (timescaledb.continuous) AS
 SELECT time_bucket(extract(year FROM now())::smallint, time)
 FROM metrics_int2
