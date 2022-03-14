@@ -320,7 +320,7 @@ CALL refresh_continuous_aggregate('cond_10', 1, 40);
 
 SELECT * FROM cagg_invals;
 
--- Refresh whithout cutting (in area where there are no
+-- Refresh without cutting (in area where there are no
 -- invalidations). Merging of overlapping entries should still happen:
 INSERT INTO conditions VALUES (15, 1, 23.4), (42, 1, 23.4);
 
