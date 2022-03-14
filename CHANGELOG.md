@@ -838,7 +838,7 @@ In particular the fixes contained in this maintenance release address issues in 
 drop_chunks and the background worker scheduler.
 
 **Bugfixes**
-* #2059 Improve infering start and stop arguments from gapfill query
+* #2059 Improve inferring start and stop arguments from gapfill query
 * #2067 Support moving compressed chunks
 * #2068 Apply SET TABLESPACE for compressed chunks
 * #2090 Fix index creation with IF NOT EXISTS for existing indexes
