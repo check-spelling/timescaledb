@@ -486,7 +486,7 @@ remote_txn_deallocate_prepared_stmts_if_needed(RemoteTxn *entry)
  * Ensure state changes are marked successful when a remote transaction
  * completes asynchronously and successfully.
  *
- * We do this in a callback which is guaranteed to be called when a reponse is
+ * We do this in a callback which is guaranteed to be called when a response is
  * received or a timeout occurs.
  *
  * There is no decision on whether to fail or not in this callback; this is

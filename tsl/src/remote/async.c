@@ -513,7 +513,7 @@ async_request_wait_ok_result(AsyncRequest *req)
  * endtime is the time at which we should give up and assume the remote
  * side is dead.
  *
- * An AsyncReponse is always returned, indicating last PGresult received,
+ * An AsyncResponse is always returned, indicating last PGresult received,
  * a timeout, or error.
  */
 AsyncResponse *
