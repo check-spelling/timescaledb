@@ -453,7 +453,7 @@ compress_chunk_populate_sort_info_for_column(Oid table, const ColumnCompressionI
 			 NameStr(column->attname));
 
 	att_tup = (Form_pg_attribute) GETSTRUCT(tp);
-	/* Other valdation checks beyond just existence of a valid comparison operator could be useful
+	/* Other validation checks beyond just existence of a valid comparison operator could be useful
 	 */
 
 	*att_nums = att_tup->attnum;
