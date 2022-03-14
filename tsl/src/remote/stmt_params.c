@@ -35,7 +35,7 @@ typedef struct StmtParams
 	List *target_attr_nums;
 	MemoryContext mctx;	/* where we allocate param values */
 	MemoryContext tmp_ctx; /* used for converting values */
-	bool preset;		   /* idicating if we set values explicitly */
+	bool preset;		   /* indicating if we set values explicitly */
 } StmtParams;
 
 /*
