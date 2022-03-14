@@ -5925,7 +5925,7 @@ SELECT compress_chunk(show_chunks) FROM show_chunks('test');
 (1 row)
 
 DROP TABLE test;
--- Fix ALTER SET/DROP NULL contstraint on distributed hypertable
+-- Fix ALTER SET/DROP NULL constraint on distributed hypertable
 --
 -- #3860
 --
