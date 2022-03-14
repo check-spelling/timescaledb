@@ -24,7 +24,7 @@
  * Note: a subtle point is that given this identifier we need to tell if the access node's
  * transaction is still ongoing in the resolution logic without consulting the
  * remote_txn table. This is because the remote_txn table is only populated once the txn
- * is committed. Therefore this id contains the acess node's transaction_id directly.
+ * is committed. Therefore this id contains the access node's transaction_id directly.
  *
  * The current format is: version;xid;server_id;user_id. Both parts are necessary to
  * guarantee uniqueness from the point of view of the data node. It is also critical to
