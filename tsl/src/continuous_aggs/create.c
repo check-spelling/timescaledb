@@ -1759,7 +1759,7 @@ tlist_aliases - aliases for the view select list
 materialization table columns are created . This will be returned in  the mattblinfo
 
 DO NOT modify orig_query. Make a copy if needed.
-SIDE_EFFCT: the data structure in mattblinfo is modified as a side effect by adding new materialize
+SIDE_EFFECT: the data structure in mattblinfo is modified as a side effect by adding new materialize
 table columns and partialize exprs.
 */
 static void
