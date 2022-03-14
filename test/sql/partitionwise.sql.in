@@ -48,7 +48,7 @@ SELECT * FROM pg2dim_h2_t1;
 SELECT * FROM pg2dim_h2_t2;
 
 
--- Compare partitionwise aggreate enabled/disabled. First run queries
+-- Compare partitionwise aggregate enabled/disabled. First run queries
 -- on PG partitioned tables for reference.
 
 -- All partition keys covered by GROUP BY

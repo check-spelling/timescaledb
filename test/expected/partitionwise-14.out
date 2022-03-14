@@ -71,7 +71,7 @@ SELECT * FROM pg2dim_h2_t2;
  Fri Oct 19 13:02:00 2018 PDT |      3 |    9
 (1 row)
 
--- Compare partitionwise aggreate enabled/disabled. First run queries
+-- Compare partitionwise aggregate enabled/disabled. First run queries
 -- on PG partitioned tables for reference.
 -- All partition keys covered by GROUP BY
 SET enable_partitionwise_aggregate = 'off';
