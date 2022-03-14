@@ -269,7 +269,7 @@ estimate_chunk_size(PlannerInfo *root, RelOptInfo *chunk_rel)
 		/*
 		 * In some cases (e.g., UPDATE stmt) top_parent_relids is not set so the
 		 * best we can do is using shared buffers size without partitioning
-		 * information. Since updates are not something we generaly optimize
+		 * information. Since updates are not something we generally optimize
 		 * for, this should be fine.
 		 */
 		if (chunk_rel->pages == 0)
