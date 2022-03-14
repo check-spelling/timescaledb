@@ -229,7 +229,7 @@ compress_chunk_impl(Oid hypertable_relid, Oid chunk_relid)
 	/* Perform an analyze on the chunk to get up-to-date stats before compressing */
 	preserve_uncompressed_chunk_stats(chunk_relid);
 
-	/* aquire locks on catalog tables to keep till end of txn */
+	/* acquire locks on catalog tables to keep till end of txn */
 	LockRelationOid(catalog_get_table_id(ts_catalog_get(), HYPERTABLE_COMPRESSION),
 					AccessShareLock);
 	LockRelationOid(catalog_get_table_id(ts_catalog_get(), CHUNK), RowExclusiveLock);
@@ -325,7 +325,7 @@ decompress_chunk_impl(Oid uncompressed_hypertable_relid, Oid uncompressed_chunk_
 	LockRelationOid(compressed_hypertable->main_table_relid, AccessShareLock);
 	LockRelationOid(uncompressed_chunk->table_id, AccessShareLock); /*upgrade when needed */
 
-	/* aquire locks on catalog tables to keep till end of txn */
+	/* acquire locks on catalog tables to keep till end of txn */
 	LockRelationOid(catalog_get_table_id(ts_catalog_get(), HYPERTABLE_COMPRESSION),
 					AccessShareLock);
 	LockRelationOid(catalog_get_table_id(ts_catalog_get(), CHUNK), RowExclusiveLock);
