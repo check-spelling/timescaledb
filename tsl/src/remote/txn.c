@@ -491,7 +491,7 @@ remote_txn_deallocate_prepared_stmts_if_needed(RemoteTxn *entry)
  *
  * There is no decision on whether to fail or not in this callback; this is
  * only to guarantee that we're always updating the internal connection
- * state. Someone still has to handle the responses elsewehere.
+ * state. Someone still has to handle the responses elsewhere.
  */
 static bool
 on_remote_txn_response(AsyncRequest *req, AsyncResponse *rsp)
