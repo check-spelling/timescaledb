@@ -199,7 +199,7 @@ typedef struct DataNodeSlice
  * Check whether chunks are assigned in an overlapping way.
  *
  * Assignments are overlapping if any data node has a chunk that overlaps (in the
- * given paritioning dimension) with a chunk on another data node. There are two
+ * given partitioning dimension) with a chunk on another data node. There are two
  * cases when this can happen:
  *
  * 1. The same slice exists on multiple data nodes (we optimize for detecting

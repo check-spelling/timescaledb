@@ -36,7 +36,7 @@ SET enable_partitionwise_aggregate = ON;
 SET timescaledb.remote_data_fetcher = 'cursor';
 
 -- Run an explain on the aggregate queries to make sure expected aggregates are being pushed down.
--- Grouping by the paritioning column should result in full aggregate pushdown where possible,
+-- Grouping by the partitioning column should result in full aggregate pushdown where possible,
 -- while using a non-partitioning column should result in a partial pushdown
 \set PREFIX 'EXPLAIN (VERBOSE, COSTS OFF)'
 

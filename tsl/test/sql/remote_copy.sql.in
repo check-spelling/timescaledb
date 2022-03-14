@@ -62,7 +62,7 @@ COPY "+ri(k33_')" FROM STDIN WITH DELIMITER ',';
 1,white,blue,grey,teal
 \.
 
--- Missing paritioning column
+-- Missing partitioning column
 COPY "+ri(k33_')" (thYme, "))_", "flavor") FROM STDIN;
 1234,\N,resentment
 \.
