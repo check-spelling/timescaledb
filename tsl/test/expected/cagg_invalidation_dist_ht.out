@@ -1020,7 +1020,7 @@ ORDER BY 1,2;
 SELECT _timescaledb_internal.invalidation_hyper_log_add_entry(:thresh_hyper_id, 1, 0);
 \set ON_ERROR_STOP 1
 \endif
--- Test that threshold is initilized to min value when there's no data
+-- Test that threshold is initialized to min value when there's no data
 -- and we specify an infinite end. Note that the min value may differ
 -- depending on time type.
 CALL refresh_continuous_aggregate('thresh_2', 0, NULL);
