@@ -503,7 +503,7 @@ ALTER TABLE hyper_fk ADD CONSTRAINT hyper_fk_device_id_fkey
 FOREIGN KEY (device_id) REFERENCES devices(device_id) DEFERRABLE INITIALLY DEFERRED;
 \set ON_ERROR_STOP 0
 BEGIN;
-  --error deferred until commmit
+  --error deferred until commit
   INSERT INTO hyper_fk(time, device_id,sensor_1) VALUES
   (1257987700000000003, 'dev4', 11);
   SELECT 1;
@@ -726,7 +726,7 @@ SELECT * FROM create_hypertable('hyper_fk_deferred', 'time', chunk_time_interval
 
 \set ON_ERROR_STOP 0
 BEGIN;
-  --error deferred until commmit
+  --error deferred until commit
   INSERT INTO hyper_fk_deferred(time, device_id,sensor_1) VALUES (1257987700000000003, 'dev4', 11);
   SELECT 1;
  ?column? 
