@@ -66,7 +66,7 @@ data_node_scan_next(CustomScanState *node)
 	slot = fdw_scan_iterate(&node->ss, &sss->fsstate);
 	MemoryContextSwitchTo(oldcontext);
 
-	/* Raise an error when system column is requsted, eg. tableoid */
+	/* Raise an error when system column is requested, eg. tableoid */
 	if (sss->systemcol && !TupIsNull(slot))
 		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
