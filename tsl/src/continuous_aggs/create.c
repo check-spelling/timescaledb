@@ -1938,7 +1938,7 @@ fixup_userview_query_tlist(Query *userquery, List *tlist_aliases)
  * CREATE VIEW mcagg ...
  * AS  select a, min(b)+max(d) from foo group by a,timebucket(a);
  *
- * Step 1. create a materialiation table which stores the partials for the
+ * Step 1. create a materialization table which stores the partials for the
  * aggregates and the grouping columns + internal columns.
  * So we have a table like _materialization_hypertable
  * with columns:
