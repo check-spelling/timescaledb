@@ -512,7 +512,7 @@ dist_ddl_process_grant_on_database(const GrantStmt *stmt)
 	 * node specifically.
 	 *
 	 * If there are multiple databases in the list, we can't determine
-	 * whether they are disributed or not, so we prevent this
+	 * whether they are distributed or not, so we prevent this
 	 * operation.
 	 */
 	dbname = get_database_name(MyDatabaseId);

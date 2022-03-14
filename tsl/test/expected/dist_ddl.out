@@ -448,7 +448,7 @@ NOTICE:  adding not-null constraint to column "time"
  (2,public,non_disttable2,t)
 (1 row)
 
--- Truncating two non-distribued hypertables should be OK.
+-- Truncating two non-distributed hypertables should be OK.
 TRUNCATE non_disttable1, non_disttable2;
 -- Truncating one distributed hypertable should be OK
 TRUNCATE disttable;

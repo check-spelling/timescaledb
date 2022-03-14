@@ -95,7 +95,7 @@ CREATE TABLE non_disttable1(time timestamptz);
 CREATE TABLE non_disttable2(time timestamptz);
 SELECT create_hypertable('non_disttable2', 'time');
 
--- Truncating two non-distribued hypertables should be OK.
+-- Truncating two non-distributed hypertables should be OK.
 TRUNCATE non_disttable1, non_disttable2;
 -- Truncating one distributed hypertable should be OK
 TRUNCATE disttable;

@@ -722,7 +722,7 @@ chunks.
 This release candidate contains bugfixes since the previous release candidate.
 
 **Minor Features**
-* #2520 Support non-transactional distibuted_exec
+* #2520 Support non-transactional distributed_exec
 
 **Bugfixes**
 * #2307 Overflow handling for refresh policy with integer time
