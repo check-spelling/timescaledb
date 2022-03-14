@@ -31,13 +31,13 @@ class TestCommitMsg(unittest.TestCase):
 
     def testSubjectBodySeparator(self):
         m = GitCommitMessage().parse_lines(['This is a subject line'])
-        self.assertTrue(m.check_subject_body_separtor())
+        self.assertTrue(m.check_subject_body_separator())
         m = GitCommitMessage().parse_lines(['This is a subject line', 'body'])
-        self.assertFalse(m.check_subject_body_separtor())
+        self.assertFalse(m.check_subject_body_separator())
         m = GitCommitMessage().parse_lines(['This is a subject line', '', 'body'])
-        self.assertTrue(m.check_subject_body_separtor())
+        self.assertTrue(m.check_subject_body_separator())
         m = GitCommitMessage().parse_lines(['This is a subject line', '   ', 'body'])
-        self.assertTrue(m.check_subject_body_separtor())
+        self.assertTrue(m.check_subject_body_separator())
 
     def testSubjectLimit(self):
         m = GitCommitMessage().parse_lines(['This subject line is exactly 48 characters long'])
