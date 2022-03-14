@@ -1500,7 +1500,7 @@ options_contain(List *options, const char *key)
 }
 
 /*
- * Add athentication info (username and optionally password) to the connection
+ * Add authentication info (username and optionally password) to the connection
  * options).
  */
 List *
