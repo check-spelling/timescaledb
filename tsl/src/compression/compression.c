@@ -120,7 +120,7 @@ typedef struct RowCompressor
 	BulkInsertState bistate;
 
 	/* in theory we could have more input columns than outputted ones, so we
-	   store the number of inputs/compressors seperately*/
+	   store the number of inputs/compressors separately*/
 	int n_input_columns;
 
 	/* info about each column */
