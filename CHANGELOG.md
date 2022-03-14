@@ -1261,7 +1261,7 @@ and expression indexes.
 
 **Thanks**
 * @shahidhk for reporting an issue with OUTER JOINs
-* @cossbow and @xxGL1TCHxx for reporting reporting issues with ChunkAppend and space partitioning
+* @cossbow and @xxGL1TCHxx for reporting issues with ChunkAppend and space partitioning
 * @est for reporting an issue with CASE expressions in continuous aggregates
 * @devlucasc for reporting the issue with deleting a background worker while a job is running
 * @ryan-shaw for reporting an issue with expression indexes on hypertables with dropped columns
