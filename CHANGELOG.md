@@ -895,7 +895,7 @@ aggregates, drop_chunks and compression.
 * @darko408 for reporting an issue with decompression
 * @dmitri191 for reporting an issue with failing background workers
 * @eduardotsj for reporting an issue with indexes not inheriting tablespace settings
-* @fourseventy for reporting an issue with multiple continuous aggregrates
+* @fourseventy for reporting an issue with multiple continuous aggregates
 * @fvannee for contributing optimizations for pruning inlined functions
 * @jflambert for reporting an issue with failing telemetry jobs
 * @nbouscal for reporting an issue with compression jobs locking referenced tables
