@@ -330,7 +330,7 @@ contain_mutable_functions_checker(Oid func_id, void *context)
 
 /*
  * Expression walker based on the corresponding PostgreSQL function. We're
- * using a custom checker function, so need a modifed version of this walker.
+ * using a custom checker function, so need a modified version of this walker.
  */
 static bool
 contain_mutable_functions_walker(Node *node, void *context)
