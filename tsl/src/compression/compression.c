@@ -684,8 +684,8 @@ row_compressor_update_group(RowCompressor *row_compressor, TupleTableSlot *row)
 		Assert(column->compressor == NULL);
 
 		MemoryContextSwitchTo(row_compressor->per_row_ctx->parent);
-		/* Performance Improvment: We should just use array access here; everything is guaranteed to
-		   be fetched */
+		/* Performance Improvement: We should just use array access here; everything is guaranteed
+		   to be fetched */
 		val = slot_getattr(row, AttrOffsetGetAttrNumber(col), &is_null);
 		segment_info_update(column->segment_info, val, is_null);
 		MemoryContextSwitchTo(row_compressor->per_row_ctx);
