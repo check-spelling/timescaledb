@@ -899,7 +899,7 @@ nspname|usename
  
 (1 row)
 
--- make sure empty schema schema has been created and then dropped on each data node
+-- make sure empty schema has been created and then dropped on each data node
 CREATE SCHEMA dist_schema_2;
 SELECT * FROM test.remote_exec(NULL, $$
 SELECT s.nspname, u.usename

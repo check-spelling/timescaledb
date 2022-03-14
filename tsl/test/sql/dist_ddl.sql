@@ -276,7 +276,7 @@ JOIN pg_catalog.pg_user u ON u.usesysid = s.nspowner
 WHERE s.nspname = 'dist_schema';
 $$);
 
--- make sure empty schema schema has been created and then dropped on each data node
+-- make sure empty schema has been created and then dropped on each data node
 CREATE SCHEMA dist_schema_2;
 
 SELECT * FROM test.remote_exec(NULL, $$
