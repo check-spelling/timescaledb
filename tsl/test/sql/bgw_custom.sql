@@ -287,7 +287,7 @@ FROM conditions
 GROUP BY location, bucket
 WITH NO DATA;
 
--- Refresh Continous Aggregate by Job
+-- Refresh Continuous Aggregate by Job
 SELECT add_job('custom_proc5', '1h', config := '{"type":"procedure"}'::jsonb, initial_start := now()) AS job_id_5 \gset
 SELECT wait_for_job_to_run(:job_id_5, 1);
 SELECT count(*) FROM conditions_summary_daily;

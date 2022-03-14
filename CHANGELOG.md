@@ -176,7 +176,7 @@ We deem it high priority to upgrade.
 This release contains bug fixes since the 2.4.0 release.  We deem it
 high priority to upgrade.
 
-The release fixes continous aggregate refresh for postgres 12.8 and
+The release fixes continuous aggregate refresh for postgres 12.8 and
 13.4, a crash with ALTER TABLE commands and a crash with continuous
 aggregates with HAVING clause.
 
