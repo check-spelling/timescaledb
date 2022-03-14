@@ -1062,7 +1062,7 @@ remote_connection_check_extension(TSConnection *conn)
 		case 1:
 			break;
 
-		default: /* something strange happend */
+		default: /* something strange happened */
 			ereport(WARNING,
 					(errcode(ERRCODE_TS_DATA_NODE_INVALID_CONFIG),
 					 errmsg("more than one TimescaleDB extension loaded")));
