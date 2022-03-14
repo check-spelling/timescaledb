@@ -527,7 +527,7 @@ mattablecolumninfo_add_mattable_index(MatTableColumnInfo *matcolinfo, Hypertable
  *
  *  Parameters:
  *    mat_rel: relation information for the materialization table
- *    origquery_tblinfo: - user query's tbale information. used for setting up
+ *    origquery_tblinfo: - user query's table information. used for setting up
  *        thr partitioning of the hypertable.
  *    tablespace_name: Name of the tablespace for the materialization table.
  *    table_access_method: Name of the table access method to use for the
