@@ -4832,7 +4832,7 @@ SELECT count(*) from test_1702;
 
 DROP TABLE test_1702;
 --
--- Expect batch size to be similair to max_insert_batch_size
+-- Expect batch size to be similar to max_insert_batch_size
 --
 CREATE TABLE test_1702 (
 	id varchar(100) NOT NULL,
