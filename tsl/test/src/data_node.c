@@ -96,7 +96,7 @@ ts_test_data_node_show(PG_FUNCTION_ARGS)
 }
 
 /*
- * Performs a data node add without setting distributed id or enforcing topolgy constraints.
+ * Performs a data node add without setting distributed id or enforcing topology constraints.
  */
 Datum
 ts_unchecked_add_data_node(PG_FUNCTION_ARGS)
