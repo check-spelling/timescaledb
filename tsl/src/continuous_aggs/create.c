@@ -1778,7 +1778,7 @@ finalizequery_init(FinalizeQueryInfo *inp, Query *orig_query, MatTableColumnInfo
 	cxt.ignore_aggoid = InvalidOid;
 
 	/* We want all the entries in the targetlist (resjunk or not)
-	 * in the materialization  table defintion so we include group-by/having clause etc.
+	 * in the materialization  table definition so we include group-by/having clause etc.
 	 * We have to do 3 things here: 1) create a column for mat table , 2) partialize_expr to
 	 * populate it and 3) modify the target entry to be a finalize_expr that selects from the
 	 * materialization table

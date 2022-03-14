@@ -451,7 +451,7 @@ group by  time_bucket('1week', timec)
 having min(location) >= 'NYC' and avg(temperature) > 20 and avg(lowp) > 10
 order by time_bucket('1week', timec), min(location);
 
---check view defintion in information views
+--check view definition in information views
 select view_name, view_definition from timescaledb_information.continuous_aggregates
 where view_name::text like 'mat_m1';
 

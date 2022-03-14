@@ -558,7 +558,7 @@ order by time_bucket('1week', timec), min(location);
  Sun Dec 30 16:00:00 2018 PST | NYC |      210 | 21.2132034355964
 (3 rows)
 
---check view defintion in information views
+--check view definition in information views
 select view_name, view_definition from timescaledb_information.continuous_aggregates
 where view_name::text like 'mat_m1';
  view_name |                                                 view_definition                                                 
