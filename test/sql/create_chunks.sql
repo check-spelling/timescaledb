@@ -3,7 +3,7 @@
 -- LICENSE-APACHE for a copy of the license.
 
 --
---  This test will create chunks in two dimenisions, time (x) and
+--  This test will create chunks in two dimensions, time (x) and
 --  space (y), where the time dimension is aligned. The figure below
 --  shows the expected result. The chunk number in the figure
 --  indicates the creation order.
