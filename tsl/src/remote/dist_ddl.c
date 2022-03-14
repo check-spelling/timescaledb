@@ -902,7 +902,7 @@ dist_ddl_process_unsupported(const ProcessUtilityArgs *args)
  * This function is executed for any Utility/DDL operation and for any
  * PostgreSQL tables been involved in the query.
  *
- * We are particulary interested in distributed hypertables and distributed
+ * We are particularly interested in distributed hypertables and distributed
  * hypertable members (regular hypertables created on a data nodes).
  *
  * In most cases expect and allow only one distributed hypertable per
