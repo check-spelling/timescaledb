@@ -144,7 +144,7 @@ ALTER TABLE hyper
 ADD CONSTRAINT hyper_unique_with_looooooooooooooooooooooooooooooooooo_time_key UNIQUE (time);
 \set ON_ERROR_STOP 1
 
---uniquness violation fails
+--uniqueness violation fails
 \set ON_ERROR_STOP 0
 INSERT INTO hyper_unique_with_looooooooooooooooooooooooooooooooooooong_name(time, device_id,sensor_1)
 VALUES (1257987700000000000, 'dev2', 11);
@@ -244,7 +244,7 @@ SELECT * FROM test.show_constraints('_timescaledb_internal._hyper_3_6_chunk');
 ALTER TABLE hyper ADD CONSTRAINT hyper_pk_pkey UNIQUE (time);
 \set ON_ERROR_STOP 1
 
---uniquness violation fails
+--uniqueness violation fails
 \set ON_ERROR_STOP 0
 BEGIN;
   --error here deferred until commit
