@@ -68,7 +68,7 @@ SELECT * from disttable2;
 \set ECHO all
 
 -- Register_is_access_node_session_on_data_node() function and test that it returns false for
--- connections openned by test suite. This simualates behaviour expected
+-- connections opened by test suite. This simualates behaviour expected
 -- with a client connections.
 CREATE OR REPLACE FUNCTION is_access_node_session_on_data_node()
 RETURNS BOOL
@@ -101,7 +101,7 @@ SELECT is_access_node_session_on_data_node();
 SELECT * FROM test.remote_exec('{data_node_1}', $$ SELECT * FROM _timescaledb_internal.set_peer_dist_id('77348176-09da-4a80-bc78-e31bdf5e63ec'); $$);
 \set ON_ERROR_STOP 1
 
--- Repeat is_access_node_session_on_data_node() test again, but this time using connections openned from
+-- Repeat is_access_node_session_on_data_node() test again, but this time using connections opened from
 -- access node to data nodes. Must return true.
 SELECT * FROM test.remote_exec(NULL, $$ SELECT is_access_node_session_on_data_node(); $$);
 
