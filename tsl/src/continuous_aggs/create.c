@@ -1791,7 +1791,7 @@ finalizequery_init(FinalizeQueryInfo *inp, Query *orig_query, MatTableColumnInfo
 		cxt.original_query_resno = resno;
 		/* if tle has aggrefs , get the corresponding
 		 * finalize_agg expression and save it in modte
-		 * also add correspong materialization table column info
+		 * also add correspond materialization table column info
 		 * for the aggrefs in tle. */
 		modte = (TargetEntry *) expression_tree_mutator((Node *) modte,
 														add_aggregate_partialize_mutator,
