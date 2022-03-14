@@ -48,7 +48,7 @@ ts_create_private_reloptinfo(RelOptInfo *rel)
 static inline TimescaleDBPrivate *
 ts_get_private_reloptinfo(RelOptInfo *rel)
 {
-	/* If rel->fdw_private is not set up here it means the rel got missclassified
+	/* If rel->fdw_private is not set up here it means the rel got misclassified
 	 * and did not get expanded by our code but by postgres native code.
 	 * This is not a problem by itself, but probably an oversight on our part.
 	 */
