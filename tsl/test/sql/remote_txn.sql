@@ -93,7 +93,7 @@ SELECT test_remote_txn_persistent_record('loopback');
 -- 1 pc tests
 -- ===================================================================
 
---successfull transaction
+--successful transaction
 SET timescaledb.enable_2pc = false;
 
 --initially, there are no connections in the cache
