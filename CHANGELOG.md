@@ -2091,7 +2091,7 @@ complete, depending on the size of your database**
 * [da09f24] Limit growth of range table during chunk inserts
 * [85dee79] Fix issue with creating expression indexes
 * [844ff7f] Fix memory leak due to constraint expressions.
-* [e90d3ee] Consider precvious CIS state in copy FROM file to rel
+* [e90d3ee] Consider previous CIS state in copy FROM file to rel
 * [56d632f] Fix bug with pointer assignment after realloc
 * [f97d624] Make event trigger creation idempotent
 
