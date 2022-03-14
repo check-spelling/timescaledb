@@ -75,7 +75,7 @@ num_test_strings()
 	return sizeof(TEST_LENGTHS) / sizeof(int);
 }
 
-/*  Check we can succesfully parse partial by well-formed HTTP responses */
+/*  Check we can successfully parse partial by well-formed HTTP responses */
 Datum
 ts_test_http_parsing(PG_FUNCTION_ARGS)
 {

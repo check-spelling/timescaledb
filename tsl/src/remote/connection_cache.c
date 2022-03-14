@@ -268,7 +268,7 @@ remote_connection_cache_invalidate_callback(Datum arg, int cacheid, uint32 hashv
 static bool
 is_loopback_host_or_addr(const char *hostaddr)
 {
-	/* Use strncmp with length to succesfully compare against host address
+	/* Use strncmp with length to successfully compare against host address
 	 * strings like "127.0.0.1/32" */
 	return strcmp("localhost", hostaddr) == 0 || strncmp("127.0.0.1", hostaddr, 9) == 0 ||
 		   strncmp("::1", hostaddr, 3) == 0;
