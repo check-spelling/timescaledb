@@ -16,10 +16,10 @@ SELECT * FROM create_hypertable('"public"."Hypertable_1"', NULL);
 SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time');
 -- space dimensions require explicit number of partitions
 SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time', 'Device_id', chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
-SELECT * FROM create_hypertable('"public"."Hypertable_1_mispelled"', 'time', 'Device_id', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
-SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time_mispelled', 'Device_id', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
+SELECT * FROM create_hypertable('"public"."Hypertable_1_misspelled"', 'time', 'Device_id', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
+SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time_misspelled', 'Device_id', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
 SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'Device_id', 'Device_id', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
-SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time', 'Device_id_mispelled', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
+SELECT * FROM create_hypertable('"public"."Hypertable_1"', 'time', 'Device_id_misspelled', 2, chunk_time_interval=>_timescaledb_internal.interval_to_usec('1 month'));
 
 INSERT INTO PUBLIC."Hypertable_1" VALUES(1,'dev_1', 3);
 
