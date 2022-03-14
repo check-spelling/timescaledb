@@ -1463,7 +1463,7 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 	ColumnDef *col;
 	Var *var;
 	Oid coltype, colcollation;
-	int32 coltypmod;
+	int32 coltypemod;
 
 	if (contain_mutable_functions(input))
 	{
@@ -1481,9 +1481,9 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 			PRINT_MATCOLNAME(colbuf, "agg", original_query_resno, matcolno);
 			colname = colbuf;
 			coltype = BYTEAOID;
-			coltypmod = -1;
+			coltypemod = -1;
 			colcollation = InvalidOid;
-			col = makeColumnDef(colname, coltype, coltypmod, colcollation);
+			col = makeColumnDef(colname, coltype, coltypemod, colcollation);
 			part_te = makeTargetEntry((Expr *) fexpr, matcolno, pstrdup(colname), false);
 		}
 		break;
@@ -1519,9 +1519,9 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 				out->mat_groupcolname_list = lappend(out->mat_groupcolname_list, pstrdup(colname));
 			}
 			coltype = exprType((Node *) tle->expr);
-			coltypmod = exprTypmod((Node *) tle->expr);
+			coltypemod = exprTypmod((Node *) tle->expr);
 			colcollation = exprCollation((Node *) tle->expr);
-			col = makeColumnDef(colname, coltype, coltypmod, colcollation);
+			col = makeColumnDef(colname, coltype, coltypemod, colcollation);
 			part_te = (TargetEntry *) copyObject(input);
 			/*need to project all the partial entries so that materialization table is filled */
 			part_te->resjunk = false;
@@ -1546,7 +1546,7 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 	Assert(part_te != NULL);
 	out->matcollist = lappend(out->matcollist, col);
 	out->partial_seltlist = lappend(out->partial_seltlist, part_te);
-	var = makeVar(1, matcolno, coltype, coltypmod, colcollation, 0);
+	var = makeVar(1, matcolno, coltype, coltypemod, colcollation, 0);
 	return var;
 }
 
