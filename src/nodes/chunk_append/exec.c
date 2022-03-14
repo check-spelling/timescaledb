@@ -94,7 +94,7 @@ ts_chunk_append_state_create(CustomScan *cscan)
 	state->choose_next_subplan = choose_next_subplan_non_parallel;
 
 	state->exclusion_ctx = AllocSetContextCreate(CurrentMemoryContext,
-												 "ChunkApppend exclusion",
+												 "ChunkAppend exclusion",
 												 ALLOCSET_DEFAULT_SIZES);
 
 	return (Node *) state;
