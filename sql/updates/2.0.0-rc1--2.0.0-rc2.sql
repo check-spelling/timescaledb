@@ -80,7 +80,7 @@ BEGIN
     LOOP
         RAISE NOTICE 'suspending data retention policy with job id %.', jobid
             USING DETAIL = 'The retention policy (formerly drop_chunks policy) will drop chunks while a continuous aggregate is still running on them. This will likely result in overwriting the aggregate with empty data.',
-            HINT = ('To restore the retention policy, with the possibility of updating aggregates with dropped data, run: SELECT alter_job(%, scheduled=>true);  Otherwise, please create a new rention_policy with a larger drop_after parameter and remove the old policy with: SELECT delete_job(%);', jobid, jobid);
+            HINT = ('To restore the retention policy, with the possibility of updating aggregates with dropped data, run: SELECT alter_job(%, scheduled=>true);  Otherwise, please create a new retention_policy with a larger drop_after parameter and remove the old policy with: SELECT delete_job(%);', jobid, jobid);
         UPDATE _timescaledb_config.bgw_job SET scheduled = false WHERE id = jobid;
     END LOOP;
 END $$;
