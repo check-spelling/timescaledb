@@ -1113,7 +1113,7 @@ ERROR:  cannot change privileges on multiple databases
 \set ON_ERROR_STOP 1
 -- Test disabling DDL commands on global objects
 SET timescaledb_experimental.enable_distributed_ddl TO 'off';
--- ALTER DEFAULT PRIVELEGES
+-- ALTER DEFAULT PRIVILEGES
 ALTER DEFAULT PRIVILEGES GRANT INSERT ON TABLES TO :ROLE_1;
 DEBUG:  skipping dist DDL on object: ALTER DEFAULT PRIVILEGES GRANT INSERT ON TABLES TO test_role_1;
 -- GRANT/REVOKE
