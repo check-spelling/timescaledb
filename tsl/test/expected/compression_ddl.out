@@ -177,7 +177,7 @@ SELECT decompress_chunk(:'UNCOMPRESSED_CHUNK_NAME');
  _timescaledb_internal._hyper_1_1_chunk
 (1 row)
 
---the compresse chunk was dropped by decompression
+--the compressed chunk was dropped by decompression
 SELECT count(*)
 FROM pg_tables WHERE tablespace = 'tablespace1';
  count 
