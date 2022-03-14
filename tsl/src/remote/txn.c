@@ -589,7 +589,7 @@ remote_txn_async_send_commit_prepared(RemoteTxn *entry)
 	Assert(entry->remote_txn_id != NULL);
 
 	elog(DEBUG3,
-		 "2pc: commiting remote transaction on connection %p: '%s'",
+		 "2pc: committing remote transaction on connection %p: '%s'",
 		 entry->conn,
 		 remote_txn_id_out(entry->remote_txn_id));
 
