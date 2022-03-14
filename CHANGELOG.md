@@ -1658,7 +1658,7 @@ This release is our second 1.0 release candidate. We expect to only merge bug fi
 * [6731c86] Add support for pre-release version checks
 
 **Thanks**
-* @did-g for an improvement to our macros to make compiliers happy
+* @did-g for an improvement to our macros to make compilers happy
 * @mx781 and @HeikoOnnebrink for reporting issues with working with pg_dump fully
 * @znbang and @timolson for reporting a bug that was causing telemetry to fail
 * @alanhamlett for reporting an issue with spinlocks when handling SIGTERMs
