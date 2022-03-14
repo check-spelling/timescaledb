@@ -156,7 +156,7 @@ drop view v1;
 drop table foo;
 create table foo( a integer, b timestamptz, toastval TEXT);
 -- Set storage type to EXTERNAL to prevent PostgreSQL from compressing my
--- easily compressable string and instead store it with TOAST
+-- easily compressible string and instead store it with TOAST
 ALTER TABLE foo ALTER COLUMN toastval SET STORAGE EXTERNAL;
 SELECT count(*) FROM create_hypertable('foo', 'b');
 

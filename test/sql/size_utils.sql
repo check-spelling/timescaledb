@@ -30,7 +30,7 @@ SELECT * FROM chunks_detailed_size('timestamp_partitioned_2') order by chunk_nam
 
 CREATE TABLE toast_test(time TIMESTAMP, value TEXT);
 -- Set storage type to EXTERNAL to prevent PostgreSQL from compressing my
--- easily compressable string and instead store it with TOAST
+-- easily compressible string and instead store it with TOAST
 ALTER TABLE toast_test ALTER COLUMN value SET STORAGE EXTERNAL;
 SELECT * FROM create_hypertable('toast_test', 'time');
 
