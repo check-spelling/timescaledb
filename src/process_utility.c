@@ -4339,7 +4339,7 @@ process_ddl_event_sql_drop(EventTriggerData *trigdata)
 TS_FUNCTION_INFO_V1(ts_timescaledb_process_ddl_event);
 
 /*
- * Event trigger hook for DDL commands that have alread been handled by
+ * Event trigger hook for DDL commands that have already been handled by
  * PostgreSQL (i.e., "ddl_command_end" and "sql_drop" events).
  */
 Datum
