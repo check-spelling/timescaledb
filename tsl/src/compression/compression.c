@@ -1602,7 +1602,7 @@ compress_singlerow(CompressSingleRowState *cr, TupleTableSlot *in_slot)
 	 * Can we do a pass through compression without a full copy?
 	 * full copy needed for multiple values. But we are dealing only with a single value,
 	 * so just need the result of transformation after passing it through the compressor function
-	 * This probably needs a bit of rewrte of the compression algorithm code
+	 * This probably needs a bit of rewrite of the compression algorithm code
 	 */
 	for (int col = 0; col < row_compressor->n_input_columns; col++)
 	{
