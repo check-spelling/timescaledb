@@ -7,7 +7,7 @@ SRC_DIR=$(dirname ${SCRIPT_DIR})
 #   - the update script fragments, because the generated update scripts will
 #     contain the license at top, and we don't want to repeat it in the middle
 #   - test/sql/dump which contains auto-generated code
-#   - src/chunk_adatptive since it's still in BETA
+#   - src/chunk_adaptive since it's still in BETA
 
 check_file() {
     SUFFIX0=
