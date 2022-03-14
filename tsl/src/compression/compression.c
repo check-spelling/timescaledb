@@ -1066,7 +1066,7 @@ decompress_chunk(Oid in_table, Oid out_table)
 		/*
 		 * We need to make sure decompressed_is_nulls is in a defined state. While this
 		 * will get written for normal columns it will not get written for dropped columns
-		 * since dropped columns don't exist in the compressed chunk so we initiallize
+		 * since dropped columns don't exist in the compressed chunk so we initialize
 		 * with true here.
 		 */
 		memset(decompressor.decompressed_is_nulls, true, out_desc->natts);
