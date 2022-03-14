@@ -1961,7 +1961,7 @@ fixup_userview_query_tlist(Query *userquery, List *tlist_aliases)
  * group by <internal-columns> , a , timebucket(a);
  *
  * Notes: ViewStmt->query is the raw parse tree
- * panquery is the output of running parse_anlayze( ViewStmt->query)
+ * panquery is the output of running parse_analyze( ViewStmt->query)
  *               so don't recreate invalidation trigger.
 
  * Since 1.7, we support real time aggregation.
