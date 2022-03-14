@@ -2323,7 +2323,7 @@ static Oid
 cagg_get_boundary_converter_funcoid(Oid typoid)
 {
 	char *function_name;
-	Oid argtyp[] = { INT8OID };
+	Oid argtype[] = { INT8OID };
 
 	switch (typoid)
 	{
@@ -2349,7 +2349,7 @@ cagg_get_boundary_converter_funcoid(Oid typoid)
 	}
 
 	List *func_name = list_make2(makeString(INTERNAL_SCHEMA_NAME), makeString(function_name));
-	Oid converter_oid = LookupFuncName(func_name, lengthof(argtyp), argtyp, false);
+	Oid converter_oid = LookupFuncName(func_name, lengthof(argtype), argtype, false);
 
 	Assert(OidIsValid(converter_oid));
 
@@ -2413,13 +2413,13 @@ build_conversion_call(Oid type, FuncExpr *boundary)
 static FuncExpr *
 build_boundary_call(int32 ht_id, Oid type)
 {
-	Oid argtyp[] = { INT4OID };
+	Oid argtype[] = { INT4OID };
 	FuncExpr *boundary;
 
 	Oid boundary_func_oid =
 		LookupFuncName(list_make2(makeString(INTERNAL_SCHEMA_NAME), makeString(BOUNDARY_FUNCTION)),
-					   lengthof(argtyp),
-					   argtyp,
+					   lengthof(argtype),
+					   argtype,
 					   false);
 	List *func_args =
 		list_make1(makeConst(INT4OID, -1, InvalidOid, 4, Int32GetDatum(ht_id), false, true));

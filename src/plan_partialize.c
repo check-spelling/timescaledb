@@ -102,7 +102,7 @@ bool
 has_partialize_function(Query *parse, PartializeAggFixAggref fix_aggref)
 {
 	Oid partialfnoid = InvalidOid;
-	Oid argtyp[] = { ANYELEMENTOID };
+	Oid argtype[] = { ANYELEMENTOID };
 
 	PartializeWalkerState state = { .found_partialize = false,
 									.found_non_partial_agg = false,
@@ -111,7 +111,7 @@ has_partialize_function(Query *parse, PartializeAggFixAggref fix_aggref)
 									.fnoid = InvalidOid };
 	List *name = list_make2(makeString(INTERNAL_SCHEMA_NAME), makeString(TS_PARTIALFN));
 
-	partialfnoid = LookupFuncName(name, lengthof(argtyp), argtyp, false);
+	partialfnoid = LookupFuncName(name, lengthof(argtype), argtype, false);
 	Assert(partialfnoid != InvalidOid);
 	state.fnoid = partialfnoid;
 	check_for_partialize_function_call((Node *) parse->targetList, &state);
