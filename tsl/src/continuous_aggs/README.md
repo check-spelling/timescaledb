@@ -75,7 +75,7 @@ average, each bucket stores the sum and count in an internal binary
 form. The partial aggregates are what gives continuous aggregates
 flexibility; buckets can be individually updated and multiple partial
 aggregates can be combined to form new partials. Future enhancements
-may allow aggregating at different time resolutions using the the same
+may allow aggregating at different time resolutions using the same
 underlying continuous aggregate.
 
 ## The Invalidation Log and Threshold ##

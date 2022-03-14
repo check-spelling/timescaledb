@@ -1565,7 +1565,7 @@ chunk_tuple_dropped_filter(const TupleInfo *ti, void *arg)
 /* This is a modified version of chunk_tuple_dropped_filter that does
  * not use ChunkStubScanCtx as the arg, it just ignores the passed in
  * argument.
- * We need a variant as the ScannerCtx assumes that the the filter function
+ * We need a variant as the ScannerCtx assumes that the filter function
  * and tuple_found function share the argument.
  */
 static ScanFilterResult

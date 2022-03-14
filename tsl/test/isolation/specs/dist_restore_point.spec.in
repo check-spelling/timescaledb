@@ -96,10 +96,10 @@ permutation "s2_begin" "s2_insert" "s3_lock_enable" "s1_create_dist_rp" "s3_lock
 # case 3: concurrent create_distributed_restore_point() call
 permutation "s3_lock_enable" "s1_create_dist_rp" "s2_create_dist_rp" "s3_lock_count" "s3_lock_release"
 
-# case 4: concurrent distributed_exec() call during the the create_distributed_restore_point()
+# case 4: concurrent distributed_exec() call during the create_distributed_restore_point()
 permutation "s3_lock_enable" "s1_create_dist_rp" "s2_dist_exec" "s3_lock_count" "s3_lock_release"
 
-# case 5: concurrent create_distributed_hypertable() during the the create_distributed_restore_point()
+# case 5: concurrent create_distributed_hypertable() during the create_distributed_restore_point()
 permutation "s3_lock_enable" "s1_create_dist_rp" "s2_create_dist_ht" "s3_lock_count" "s3_lock_release"
 
 # case 6: concurrent DDL/commit during the create_distributed_restore_point()
