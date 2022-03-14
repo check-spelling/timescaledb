@@ -1,4 +1,4 @@
-# generate_test_schedul(<output file> ...)
+# generate_test_schedule(<output file> ...)
 #
 # A test schedule is generated for the files in TEST_FILES. The test schedule
 # groups the tests into groups of size GROUP_SIZE, with the exceptions of any
