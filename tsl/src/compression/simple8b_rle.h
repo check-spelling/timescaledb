@@ -617,7 +617,7 @@ simple8brle_decompression_iterator_init_reverse(Simple8bRleDecompressionIterator
 
 /* returning a struct produces noticeably better assembly on x86_64 than returning
  * is_done and is_null via pointers; it uses two registers instead of any memory reads.
- * Since it is also easier to read, we perfer it here.
+ * Since it is also easier to read, we prefer it here.
  */
 static Simple8bRleDecompressResult
 simple8brle_decompression_iterator_try_next_forward(Simple8bRleDecompressionIterator *iter)
