@@ -16,7 +16,7 @@ SELECT set_integer_now_func('continuous_agg_test', 'integer_now_test1');
  
 (1 row)
 
--- watermark tabels start out empty
+-- watermark tables start out empty
 SELECT * FROM _timescaledb_catalog.continuous_aggs_invalidation_threshold;
  hypertable_id | watermark 
 ---------------+-----------
