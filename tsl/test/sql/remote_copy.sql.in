@@ -79,7 +79,7 @@ SET client_min_messages TO INFO;
 
 -- Invalid data after new chunk creation, data and chunks should be rolled back
 COPY "+ri(k33_')" FROM STDIN WITH DELIMITER ',';
-700,7,neopolitan,7,seven
+700,7,neapolitan,7,seven
 800,8,pesto,8,eight
 900,9,salami,9,nine
 1000,white,blue,ten,hi
