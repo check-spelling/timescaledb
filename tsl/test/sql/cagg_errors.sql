@@ -228,7 +228,7 @@ from conditions
 fetch first 10 rows only WITH NO DATA;
 
 --using locking clauses FOR clause
---all should be disabled. we cannot guarntee locks on the hypertable
+--all should be disabled. we cannot guarantee locks on the hypertable
 CREATE MATERIALIZED VIEW mat_m1 WITH ( timescaledb.continuous)
 AS
 Select sum(humidity), avg(temperature::int4)
