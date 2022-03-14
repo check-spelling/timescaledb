@@ -76,9 +76,9 @@ psql:include/compression_test.sql:7: NOTICE:  table "compressed" does not exist,
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -110,9 +110,9 @@ INSERT INTO base_ints VALUES (0, NULL), (10, NULL), (10000, NULL);
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -149,9 +149,9 @@ CREATE TABLE base_ints AS SELECT row_number() OVER() as rn, item::bigint FROM (S
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -194,9 +194,9 @@ CREATE TABLE base_ints AS SELECT row_number() over () as rn, item FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -227,9 +227,9 @@ CREATE TABLE base_ints AS SELECT row_number() OVER() as rn, NULLIF(i, 5) item FR
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -259,9 +259,9 @@ CREATE TABLE base_ints AS SELECT row_number() OVER() as rn, NULLIF(i, 1) item FR
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -291,9 +291,9 @@ CREATE TABLE base_ints AS SELECT row_number() OVER() as rn, NULLIF(i, 10) item F
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -323,9 +323,9 @@ CREATE TABLE base_ints AS SELECT row_number() OVER() as rn, NULLIF(NULLIF(NULLIF
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -366,9 +366,9 @@ SELECT
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -412,9 +412,9 @@ CREATE TABLE base_time AS SELECT row_number() OVER() as rn, item FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -458,9 +458,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, item::double prec
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -497,9 +497,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, item::double prec
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -541,9 +541,9 @@ CREATE TABLE base_doubles AS SELECT row_number() over () as rn, item FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -574,9 +574,9 @@ CREATE TABLE base_doubles AS SELECT row_number() over () as rn, 0::FLOAT(50) as 
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -607,9 +607,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, NULLIF(i, 5)::DOU
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -639,9 +639,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, NULLIF(i, 1)::DOU
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -671,9 +671,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, NULLIF(i, 10)::DO
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -703,9 +703,9 @@ CREATE TABLE base_doubles AS SELECT row_number() OVER() as rn, NULLIF(NULLIF(NUL
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -750,9 +750,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, item::text FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -790,9 +790,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, item::text FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -823,9 +823,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, item::text FROM (SE
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -866,9 +866,9 @@ SELECT pg_total_relation_size(reltoastrelid)
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -899,9 +899,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 5)::TEXT 
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -931,9 +931,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 1)::TEXT 
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -963,9 +963,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 10)::TEXT
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -995,9 +995,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(NULLIF(NULLI
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1042,9 +1042,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, item::text FROM
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1081,9 +1081,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, item::text FROM (SE
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1124,9 +1124,9 @@ SELECT pg_total_relation_size(reltoastrelid)
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1157,9 +1157,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 5)::TEXT 
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1189,9 +1189,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 1)::TEXT 
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1221,9 +1221,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(i, 10)::TEXT
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
@@ -1253,9 +1253,9 @@ CREATE TABLE base_texts AS SELECT row_number() OVER() as rn, NULLIF(NULLIF(NULLI
  Number of rows different between original and decompressed reversed (expect 0) |     0
 (1 row)
 
-                                              ?column?                                              | count 
-----------------------------------------------------------------------------------------------------+-------
- Number of rows different between original, decompressed, and decompressed deserializeed (expect 0) |     0
+                                             ?column?                                              | count 
+---------------------------------------------------------------------------------------------------+-------
+ Number of rows different between original, decompressed, and decompressed deserialized (expect 0) |     0
 (1 row)
 
                                               ?column?                                               | ?column? 
