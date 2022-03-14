@@ -11,7 +11,7 @@ is used to compress new data.
 - `<algorithm name>_compressor_alloc` - creates the compressor
 - `<algorithm_name>_compressor_append_null` - appends a null
 - `<algorithm_name>_compressor_append_value` - appends a non-null value
-- `<agorithm_name>_compressor_finish` - finalizes the compression and returns the compressed data
+- `<algorithm_name>_compressor_finish` - finalizes the compression and returns the compressed data
 
 Data can be read back out using the decompression iterator. An iterator can operate backwards or forwards.
 There is no random access. The api is
