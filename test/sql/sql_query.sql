@@ -31,7 +31,7 @@ SELECT * FROM "int_part" WHERE time IN (NULL);
 SELECT * FROM "int_part" WHERE time = ANY (NULL);
 SELECT * FROM "int_part" WHERE time = NULL;
 
---make sure this touches only one partititon
+--make sure this touches only one partition
 EXPLAIN (verbose ON, costs off) SELECT * FROM "int_part" WHERE object_id = 1;
 
 --Need to verify space partitions are currently pruned in this query

@@ -2268,7 +2268,7 @@ a similar process on [our docs](http://docs.timescale.com/getting-started/setup/
 * [14ac892] Fix possible segfault
 * [0f4169c] Fix check constraint on dimension table
 * [71c5e78] Fix and refactor tablespace support
-* [5452dc5] Fix partiton functions; bug fixes (including memory)
+* [5452dc5] Fix partition functions; bug fixes (including memory)
 * [e75cd7e] Finer grained memory management
 * [3c460f0] Fix partitioning, memory, and tests
 * [fe51d8d] Add native scan for the chunk table

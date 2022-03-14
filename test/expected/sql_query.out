@@ -132,7 +132,7 @@ SELECT * FROM "int_part" WHERE time = NULL;
 ------+-----------+------
 (0 rows)
 
---make sure this touches only one partititon
+--make sure this touches only one partition
 EXPLAIN (verbose ON, costs off) SELECT * FROM "int_part" WHERE object_id = 1;
                                                QUERY PLAN                                                
 ---------------------------------------------------------------------------------------------------------
