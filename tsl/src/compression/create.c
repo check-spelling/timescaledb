@@ -95,7 +95,7 @@ get_default_algorithm_id(Oid typeoid)
 
 		default:
 		{
-			/* use dictitionary if possible, otherwise use array */
+			/* use dictionary if possible, otherwise use array */
 			TypeCacheEntry *tentry =
 				lookup_type_cache(typeoid, TYPECACHE_EQ_OPR_FINFO | TYPECACHE_HASH_PROC_FINFO);
 			if (tentry->hash_proc_finfo.fn_addr == NULL || tentry->eq_opr_finfo.fn_addr == NULL)
