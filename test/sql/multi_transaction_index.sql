@@ -124,7 +124,7 @@ CREATE INDEX ON partial_index_test (time) WITH (timescaledb.transaction_per_chun
 SELECT * FROM test.show_indexes('partial_index_test');
 SELECT * FROM test.show_indexesp('_timescaledb_internal._hyper%_chunk');
 
--- regerssion test for bug fixed by PR #1008.
+-- regression test for bug fixed by PR #1008.
 -- this caused an assertion failure when a MergeAppend node contained unsorted children
 SET enable_seqscan TO false;
 SET enable_bitmapscan TO false;
