@@ -172,7 +172,7 @@ SET SESSION AUTHORIZATION regress_rls_bob;
 SELECT * FROM document WHERE f_leak(dtitle) ORDER BY did;
 SELECT * FROM document NATURAL JOIN category WHERE f_leak(dtitle) ORDER by did;
 
--- viewpoint from rls_regres_carol again
+-- viewpoint from regress_rls_carol again
 SET SESSION AUTHORIZATION regress_rls_carol;
 SELECT * FROM document WHERE f_leak(dtitle) ORDER BY did;
 SELECT * FROM document NATURAL JOIN category WHERE f_leak(dtitle) ORDER by did;
@@ -428,7 +428,7 @@ ALTER POLICY pp1 ON hyper_document USING (dauthor = current_user);
 SET SESSION AUTHORIZATION regress_rls_bob;
 SELECT * FROM hyper_document WHERE f_leak(dtitle) ORDER BY did, cid;
 
--- viewpoint from rls_regres_carol again
+-- viewpoint from regress_rls_carol again
 SET SESSION AUTHORIZATION regress_rls_carol;
 SELECT * FROM hyper_document WHERE f_leak(dtitle) ORDER BY did, cid;
 

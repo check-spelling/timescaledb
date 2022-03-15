@@ -443,11 +443,11 @@ continuous_agg_scan_refresh_window_ranges(const InternalTimeRange *refresh_windo
  * Invalid ranges:           [-----] [-]   [--] [-] [---]
  * Merged range:             [---------------------------)
  *
- * The maximum number of individual (non-mergable) ranges are
+ * The maximum number of individual (non-mergeable) ranges are
  * #buckets_in_window/2 (i.e., every other bucket is invalid).
  *
  * Since it might not be efficient to materialize a lot buckets separately
- * when there are many invalid (non-adjecent) buckets/ranges, we put a limit
+ * when there are many invalid (non-adjacent) buckets/ranges, we put a limit
  * on the number of individual materializations we do. This limit is
  * determined by the MATERIALIZATIONS_PER_REFRESH_WINDOW setting.
  *

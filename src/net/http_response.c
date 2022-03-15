@@ -20,7 +20,7 @@ extern HttpHeader *ts_http_header_create(const char *name, size_t name_len, cons
 typedef enum HttpParseState
 {
 	HTTP_STATE_STATUS,
-	HTTP_STATE_INTERM,		/* received a single \r */
+	HTTP_STATE_INTERN,		/* received a single \r */
 	HTTP_STATE_HEADER_NAME, /* received \r\n */
 	HTTP_STATE_HEADER_VALUE,
 	HTTP_STATE_ALMOST_DONE,
@@ -185,7 +185,7 @@ http_parse_status(HttpResponseState *state, const char next)
 			if (sscanf(raw_buf, "%127s%*[ ]%d%*[ ]%*s", state->version, &state->status_code) == 2)
 			{
 				if (http_parse_version(state))
-					state->state = HTTP_STATE_INTERM;
+					state->state = HTTP_STATE_INTERN;
 				else
 					state->state = HTTP_STATE_ERROR;
 			}
@@ -214,7 +214,7 @@ http_response_state_add_header(HttpResponseState *state, const char *name, size_
 }
 
 static void
-http_parse_interm(HttpResponseState *state, const char next)
+http_parse_intern(HttpResponseState *state, const char next)
 {
 	int temp_length;
 
@@ -299,7 +299,7 @@ http_parse_header_value(HttpResponseState *state, const char next)
 	switch (next)
 	{
 		case CARRIAGE_RETURN:
-			state->state = HTTP_STATE_INTERM;
+			state->state = HTTP_STATE_INTERN;
 			break;
 		case NEW_LINE:
 			/* \n is not allowed */
@@ -349,8 +349,8 @@ ts_http_response_state_parse(HttpResponseState *state, size_t bytes)
 				http_parse_status(state, next);
 				state->parse_offset++;
 				break;
-			case HTTP_STATE_INTERM:
-				http_parse_interm(state, next);
+			case HTTP_STATE_INTERN:
+				http_parse_intern(state, next);
 				state->parse_offset++;
 				state->cur_header_name = state->raw_buffer + state->parse_offset;
 				break;

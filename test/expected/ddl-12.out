@@ -500,7 +500,7 @@ ERROR:  cannot change the type of a hash-partitioned column
 -- conversion that messes up partitioning fails
 ALTER TABLE alter_test ALTER COLUMN time_us TYPE timestamptz USING time_us::timestamptz+INTERVAL '1 year';
 ERROR:  check constraint "constraint_4" is violated by some row
--- dropping column that messes up partiitoning fails
+-- dropping column that messes up partitioning fails
 ALTER TABLE alter_test DROP COLUMN colorname;
 ERROR:  cannot drop column named in partition key
 --ONLY blocked

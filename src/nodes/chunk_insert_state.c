@@ -855,7 +855,7 @@ ts_chunk_insert_state_destroy(ChunkInsertState *state)
 	 * `per_tuple_exprcontext`. Since we create constraint expressions within
 	 * the chunk insert state memory context, this leads to a series of pointers
 	 * structured like: `per_tuple_exprcontext -> constraint expr (in chunk
-	 * insert state) -> cached row type` if we try to free the the chunk insert
+	 * insert state) -> cached row type` if we try to free the chunk insert
 	 * state MemoryContext while the `es_per_tuple_exprcontext` is live,
 	 * postgres tries to dereference a dangling pointer in one of
 	 * `es_per_tuple_exprcontext`'s callbacks. Normally postgres allocates the

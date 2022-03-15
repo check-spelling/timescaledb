@@ -905,7 +905,7 @@ ORDER BY 1;
 
 -- Insert a large value in one of the chunks that will be dropped
 INSERT INTO drop_chunks_table VALUES (:range_start_integer-1, 100);
--- Now refresh and drop the two adjecent chunks
+-- Now refresh and drop the two adjacent chunks
 SELECT timescaledb_experimental.refresh_continuous_aggregate('drop_chunks_view',
   show_chunks('drop_chunks_table', older_than=>30));
  refresh_continuous_aggregate 
@@ -1204,7 +1204,7 @@ GROUP BY 1;
 psql:include/cagg_ddl_common.sql:803: NOTICE:  continuous aggregate "width_expr" is already up-to-date
 DROP MATERIALIZED VIEW width_expr;
 \set ON_ERROR_STOP 0
--- non-immutable expresions should be rejected
+-- non-immutable expressions should be rejected
 CREATE MATERIALIZED VIEW width_expr WITH (timescaledb.continuous) AS
 SELECT time_bucket(extract(year FROM now())::smallint, time)
 FROM metrics_int2

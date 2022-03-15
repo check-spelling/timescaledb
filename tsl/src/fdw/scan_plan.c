@@ -552,7 +552,7 @@ fdw_scan_info_init(ScanInfo *scaninfo, PlannerInfo *root, RelOptInfo *rel, Path 
 	/*
 	 * Try to locally evaluate the stable functions such as now() before pushing
 	 * them to the remote node.
-	 * We have to do this at the execution stage as oppossed to the planning stage, because stable
+	 * We have to do this at the execution stage as opposed to the planning stage, because stable
 	 * functions must be recalculated with each execution of a prepared
 	 * statement.
 	 * Note that the query planner currently only pushes down to remote side
@@ -771,7 +771,7 @@ foreign_grouping_ok(PlannerInfo *root, RelOptInfo *grouped_rel, GroupPathExtraDa
 	 * HAVING clauses and save them in remote_conds and local_conds of the
 	 * grouped rel's fpinfo.
 	 *
-	 * For partial agggregations, we never push-down the HAVING clause since
+	 * For partial aggregations, we never push-down the HAVING clause since
 	 * it either has (1) been reduced by the planner to a simple filter on the
 	 * base rel, or, in case of aggregates, the aggregates must be partials
 	 * and have therefore been pulled up into the target list (unless they're

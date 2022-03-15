@@ -3,7 +3,7 @@
 -- LICENSE-APACHE for a copy of the license.
 
 -- these table definitions have been adjusted from
--- table defintions of the postgres test suite
+-- table definitions of the postgres test suite
 
 CREATE TABLE INT2_TBL(f1 int2, ts timestamptz NOT NULL DEFAULT '2000-01-01');
 SELECT table_name FROM create_hypertable('int2_tbl','ts');

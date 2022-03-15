@@ -201,7 +201,7 @@ WITH (timescaledb.continuous, timescaledb.materialized_only=true)
 AS
 SELECT
   time_bucket('1 hour', observation_time) as bucket,
-  min(observation_time AT TIME ZONE 'EST') as min_time, --note the explict timezone
+  min(observation_time AT TIME ZONE 'EST') as min_time, --note the explicit timezone
   device_id,
   avg(metric) as metric_avg,
   max(metric)-min(metric) as metric_spread

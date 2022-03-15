@@ -48,7 +48,7 @@ ERROR:  operation not supported
 -- constraint to test how those work
 CREATE TABLE disttable(time timestamptz, device int CHECK (device > 0), color int, temp float, PRIMARY KEY (time,device));
 SELECT * FROM create_distributed_hypertable('disttable', 'time', 'device', 1);
-WARNING:  insuffient number of partitions for dimension "device"
+WARNING:  insufficient number of partitions for dimension "device"
  hypertable_id | schema_name | table_name | created 
 ---------------+-------------+------------+---------
              1 | public      | disttable  | t
@@ -56,7 +56,7 @@ WARNING:  insuffient number of partitions for dimension "device"
 
 -- Increase the number of partitions. Expect warning since still too low
 SELECT * FROM set_number_partitions('disttable', 2);
-WARNING:  insuffient number of partitions for dimension "device"
+WARNING:  insufficient number of partitions for dimension "device"
  set_number_partitions 
 -----------------------
  
@@ -2055,7 +2055,7 @@ ORDER BY 1, 2;
 -- Attach another data node but do not auto-repartition, i.e.,
 -- increase the number of slices.
 SELECT * FROM attach_data_node(:'DATA_NODE_2', '"Table\\Schema"."Param_Table"', repartition => false);
-WARNING:  insuffient number of partitions for dimension "__region"
+WARNING:  insufficient number of partitions for dimension "__region"
  hypertable_id | node_hypertable_id |      node_name       
 ---------------+--------------------+----------------------
              4 |                  3 | db_dist_hypertable_2
@@ -2255,36 +2255,36 @@ AND h.table_name = 'Param_Table';
 
 -- Test multi-dimensional hypertable. The add_dimension() command
 -- should be propagated to backends.
-CREATE TABLE dimented_table (time timestamptz, column1 int, column2 timestamptz, column3 int);
-SELECT * FROM create_distributed_hypertable('dimented_table', 'time', partitioning_column => 'column1', number_partitions  => 4, replication_factor => 1, data_nodes => ARRAY[:'DATA_NODE_1']);
+CREATE TABLE dimensioned_table (time timestamptz, column1 int, column2 timestamptz, column3 int);
+SELECT * FROM create_distributed_hypertable('dimensioned_table', 'time', partitioning_column => 'column1', number_partitions  => 4, replication_factor => 1, data_nodes => ARRAY[:'DATA_NODE_1']);
 WARNING:  only one data node was assigned to the hypertable
 NOTICE:  adding not-null constraint to column "time"
- hypertable_id | schema_name |   table_name   | created 
----------------+-------------+----------------+---------
-             5 | public      | dimented_table | t
+ hypertable_id | schema_name |    table_name     | created 
+---------------+-------------+-------------------+---------
+             5 | public      | dimensioned_table | t
 (1 row)
 
 -- Create one chunk to block add_dimension
-INSERT INTO dimented_table VALUES('2017-01-01 06:01', 1, '2017-01-01 08:01', 1);
+INSERT INTO dimensioned_table VALUES('2017-01-01 06:01', 1, '2017-01-01 08:01', 1);
 \set ON_ERROR_STOP 0
 -- add_dimension should fail when table has data and a chunk
-SELECT * FROM add_dimension('dimented_table', 'column2', chunk_time_interval => interval '1 week');
-ERROR:  hypertable "dimented_table" has data or empty chunks
+SELECT * FROM add_dimension('dimensioned_table', 'column2', chunk_time_interval => interval '1 week');
+ERROR:  hypertable "dimensioned_table" has data or empty chunks
 \set ON_ERROR_STOP 1
 -- Clear table
-TRUNCATE dimented_table;
+TRUNCATE dimensioned_table;
 -- Now add_dimension should work
-SELECT * FROM add_dimension('dimented_table', 'column2', chunk_time_interval => interval '1 week');
+SELECT * FROM add_dimension('dimensioned_table', 'column2', chunk_time_interval => interval '1 week');
 NOTICE:  adding not-null constraint to column "column2"
- dimension_id | schema_name |   table_name   | column_name | created 
---------------+-------------+----------------+-------------+---------
-            9 | public      | dimented_table | column2     | t
+ dimension_id | schema_name |    table_name     | column_name | created 
+--------------+-------------+-------------------+-------------+---------
+            9 | public      | dimensioned_table | column2     | t
 (1 row)
 
-SELECT * FROM add_dimension('dimented_table', 'column3', 4, partitioning_func => '_timescaledb_internal.get_partition_for_key');
- dimension_id | schema_name |   table_name   | column_name | created 
---------------+-------------+----------------+-------------+---------
-           10 | public      | dimented_table | column3     | t
+SELECT * FROM add_dimension('dimensioned_table', 'column3', 4, partitioning_func => '_timescaledb_internal.get_partition_for_key');
+ dimension_id | schema_name |    table_name     | column_name | created 
+--------------+-------------+-------------------+-------------+---------
+           10 | public      | dimensioned_table | column3     | t
 (1 row)
 
 SELECT * FROM _timescaledb_catalog.dimension;
@@ -2301,7 +2301,7 @@ SELECT * FROM _timescaledb_catalog.dimension;
  10 |             5 | column3          | integer                  | f       |          4 | _timescaledb_internal    | get_partition_for_key |                 |                         | 
 (9 rows)
 
-SELECT * FROM attach_data_node(:'DATA_NODE_2', 'dimented_table');
+SELECT * FROM attach_data_node(:'DATA_NODE_2', 'dimensioned_table');
  hypertable_id | node_hypertable_id |      node_name       
 ---------------+--------------------+----------------------
              5 |                  4 | db_dist_hypertable_2
@@ -3376,7 +3376,7 @@ id|hypertable_id|column_name|column_type|aligned|num_slices|partitioning_func_sc
 -- well. We're setting num_partitions lower than the number of servers
 -- and expect a warning.
 SELECT * FROM add_dimension('disttable', 'device', 1, partitioning_func => '_timescaledb_internal.get_partition_hash');
-WARNING:  insuffient number of partitions for dimension "device"
+WARNING:  insufficient number of partitions for dimension "device"
  dimension_id | schema_name | table_name | column_name | created 
 --------------+-------------+------------+-------------+---------
            22 | public      | disttable  | device      | t
@@ -4825,7 +4825,7 @@ SELECT count(*) from test_1702;
 
 DROP TABLE test_1702;
 --
--- Expect batch size to be similair to max_insert_batch_size
+-- Expect batch size to be similar to max_insert_batch_size
 --
 CREATE TABLE test_1702 (
 	id varchar(100) NOT NULL,
@@ -5924,7 +5924,7 @@ SELECT compress_chunk(show_chunks) FROM show_chunks('test');
 (1 row)
 
 DROP TABLE test;
--- Fix ALTER SET/DROP NULL contstraint on distributed hypertable
+-- Fix ALTER SET/DROP NULL constraint on distributed hypertable
 --
 -- #3860
 --

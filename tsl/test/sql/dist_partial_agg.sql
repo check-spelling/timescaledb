@@ -36,7 +36,7 @@ SET enable_partitionwise_aggregate = ON;
 SET timescaledb.remote_data_fetcher = 'cursor';
 
 -- Run an explain on the aggregate queries to make sure expected aggregates are being pushed down.
--- Grouping by the paritioning column should result in full aggregate pushdown where possible,
+-- Grouping by the partitioning column should result in full aggregate pushdown where possible,
 -- while using a non-partitioning column should result in a partial pushdown
 \set PREFIX 'EXPLAIN (VERBOSE, COSTS OFF)'
 
@@ -46,7 +46,7 @@ SET timescaledb.remote_data_fetcher = 'cursor';
 \set GROUPING 'region, temperature'
 \ir 'include/aggregate_queries.sql'
 
--- Full aggregate pushdown correctness check, compare location grouped query results with partionwise aggregates on and off
+-- Full aggregate pushdown correctness check, compare location grouped query results with partitionwise aggregates on and off
 \set GROUPING 'location'
 SELECT format('%s/results/dist_agg_loc_results_test.out', :'TEST_OUTPUT_DIR') as "RESULTS_TEST1",
        format('%s/results/dist_agg_loc_results_control.out', :'TEST_OUTPUT_DIR') as "RESULTS_CONTROL1"
@@ -71,7 +71,7 @@ SET enable_partitionwise_aggregate = ON;
 
 :DIFF_CMD1
 
--- Partial aggregate pushdown correctness check, compare region grouped query results with partionwise aggregates on and off
+-- Partial aggregate pushdown correctness check, compare region grouped query results with partitionwise aggregates on and off
 \set GROUPING 'region'
 SELECT format('%s/results/dist_agg_region_results_test.out', :'TEST_OUTPUT_DIR') as "RESULTS_TEST2",
        format('%s/results/dist_agg_region_results_control.out', :'TEST_OUTPUT_DIR') as "RESULTS_CONTROL2"

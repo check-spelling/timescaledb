@@ -95,7 +95,7 @@ CREATE TABLE non_disttable1(time timestamptz);
 CREATE TABLE non_disttable2(time timestamptz);
 SELECT create_hypertable('non_disttable2', 'time');
 
--- Truncating two non-distribued hypertables should be OK.
+-- Truncating two non-distributed hypertables should be OK.
 TRUNCATE non_disttable1, non_disttable2;
 -- Truncating one distributed hypertable should be OK
 TRUNCATE disttable;
@@ -276,7 +276,7 @@ JOIN pg_catalog.pg_user u ON u.usesysid = s.nspowner
 WHERE s.nspname = 'dist_schema';
 $$);
 
--- make sure empty schema schema has been created and then dropped on each data node
+-- make sure empty schema has been created and then dropped on each data node
 CREATE SCHEMA dist_schema_2;
 
 SELECT * FROM test.remote_exec(NULL, $$

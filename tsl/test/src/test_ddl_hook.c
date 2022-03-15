@@ -120,7 +120,7 @@ event_trigger_event_cmp(const void *obj1, const void *obj2)
 											*((const EventTriggerDropObject **) obj2) };
 
 	/* This only orders on object type for simplicity. Thus it is assumed that
-	 * the order of objects with the same type is predictible across
+	 * the order of objects with the same type is predictable across
 	 * PostgreSQL versions */
 	return obj[0]->type - obj[1]->type;
 }
@@ -133,7 +133,7 @@ test_sql_drop(List *dropped_objects)
 	EventTriggerDropObject **objects = palloc(num_objects * sizeof(EventTriggerDropObject *));
 	int i = 0;
 
-	/* Sort the list of dropped objects for predictible order in tests across
+	/* Sort the list of dropped objects for predictable order in tests across
 	 * PostgreSQL versions. Note that PG11 introduced a list_qsort function,
 	 * but it is not available in earlier PostgreSQL versions so we're doing
 	 * our own sorting. */

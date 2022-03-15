@@ -28,7 +28,7 @@
 
 /*
  * PG15 is in fact not yet supported, but we are working on this. The user will
- * be unable to compile aginst this version unless he/she explicitly uses
+ * be unable to compile against this version unless he/she explicitly uses
  * -DEXPERIMENTAL=ON. This is checked by our CMakeLists.txt.
  */
 #define is_supported_pg_version(version)                                                           \
@@ -495,7 +495,7 @@ get_reindex_options(ReindexStmt *stmt)
 /*
  * PG15 added additional `force_flush` argument to shm_mq_send().
  *
- * Our _compat() version currently uses force_flush = true on PG15 to preseve
+ * Our _compat() version currently uses force_flush = true on PG15 to preserve
  * the same behaviour on all supported PostgreSQL versions.
  *
  * https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=46846433

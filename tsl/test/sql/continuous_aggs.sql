@@ -451,7 +451,7 @@ group by  time_bucket('1week', timec)
 having min(location) >= 'NYC' and avg(temperature) > 20 and avg(lowp) > 10
 order by time_bucket('1week', timec), min(location);
 
---check view defintion in information views
+--check view definition in information views
 select view_name, view_definition from timescaledb_information.continuous_aggregates
 where view_name::text like 'mat_m1';
 
@@ -937,7 +937,7 @@ CALL refresh_continuous_aggregate('mat_types',NULL,NULL);
 SELECT * FROM mat_types;
 
 -------------------------------------------------------------------------------------
--- Test issue #2616 where cagg view contains an experssion with several aggregates in
+-- Test issue #2616 where cagg view contains an expression with several aggregates in
 
 CREATE TABLE water_consumption
 (
@@ -1119,7 +1119,7 @@ SELECT * from search_query_count_3 ORDER BY 1, 2, 3;
 
 -- insert into a new region of the hypertable and then refresh the cagg
 -- (note we still do not support refreshes into existing regions.
--- cagg chunks do not map 1-1 to hypertabl regions. They encompass
+-- cagg chunks do not map 1-1 to hypertable regions. They encompass
 -- more data
 -- ).
 insert into raw_data select '2000-05-01 00:00+0','Q3', 0, 0;

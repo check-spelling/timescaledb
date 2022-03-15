@@ -265,7 +265,7 @@ SELECT * FROM :TEST_TABLE1 m JOIN LATERAL (SELECT * FROM :TEST_TABLE2 d WHERE d.
 \o
 -- Compare results between CAggs and Original View (to check PG and TSDB machinery)
 :DIFF_CMD
--- Decompres 1 chunk from cagg
+-- Decompress 1 chunk from cagg
 SELECT CASE WHEN res is NULL THEN NULL
             ELSE 'decompress'
        END as dec

@@ -45,7 +45,7 @@
  * Case 2 - The transaction is committed:
  *  The remote transaction MUST BE be committed (REMOTE_TXN_RESOLVE_COMMT)
  *	    - Invariant:  All remote transaction have been `PREPARE TRANSACTION` successfully
- *	      -> Otherwise the acces node's transaction would have aborted
+ *	      -> Otherwise the access node's transaction would have aborted
  *        -> Note: This guarantees that the remote transaction can be committed (commit cannot fail)
  *      - Invariant: An entry for each remote commit will exist in `remote_txn`
  *

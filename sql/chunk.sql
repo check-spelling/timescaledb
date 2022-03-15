@@ -14,7 +14,7 @@
 -- chunk_target_size: the target size in bytes that the chunk should have.
 --
 -- The function should return the new interval in dimension-specific
--- time (ususally microseconds).
+-- time (usually microseconds).
 CREATE OR REPLACE FUNCTION _timescaledb_internal.calculate_chunk_interval(
         dimension_id INTEGER,
         dimension_coord BIGINT,

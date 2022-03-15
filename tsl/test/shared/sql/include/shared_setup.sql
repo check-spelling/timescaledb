@@ -215,7 +215,7 @@ INSERT INTO metrics_int_dist1 VALUES
     (100,1,2,-100.0);
 
 -- Create distributed hypertable for copy chunk test. Need to have
--- a space-dimension to have more predictible chunk placement.
+-- a space-dimension to have more predictable chunk placement.
 CREATE TABLE dist_chunk_copy (
         time timestamptz NOT NULL,
         device integer,

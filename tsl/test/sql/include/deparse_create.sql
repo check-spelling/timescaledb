@@ -2,7 +2,7 @@
 -- Please see the included NOTICE for copyright information and
 -- LICENSE-TIMESCALE for a copy of the license.
 
--- Lets create some tabels that we will try to deparse and recreate
+-- Lets create some tables that we will try to deparse and recreate
 
 \c :TEST_DBNAME :ROLE_SUPERUSER
 

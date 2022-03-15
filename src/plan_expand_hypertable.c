@@ -634,7 +634,7 @@ process_quals(Node *quals, CollectQualCtx *ctx, bool is_outer_join)
 
 			/*
 			 * check for time_bucket comparisons
-			 * time_bucket(Const, time_colum) > Const
+			 * time_bucket(Const, time_column) > Const
 			 */
 			if ((IsA(left, FuncExpr) && IsA(right, Const) &&
 				 list_length(castNode(FuncExpr, left)->args) == 2 &&

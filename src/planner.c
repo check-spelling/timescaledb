@@ -91,7 +91,7 @@ static const char *TS_CTE_EXPAND = "ts_expand";
  * There is no place to store planner-global custom information (such as in
  * PlannerInfo). Because of this, we have to use the global variable that is
  * valid inside the scope of timescaledb_planner().
- * Note that that function can be called recursively, e.g. when evaluating a
+ * Note that function can be called recursively, e.g. when evaluating a
  * SQL function at the planning time. We only have to determine the fetcher type
  * in the outermost scope, so we distinguish it by that the fetcher type is set
  * to the invalid value of 'auto'.

@@ -493,7 +493,7 @@ ts_telemetry_stats_gather(TelemetryStats *stats)
 	Relation rel;
 	SysScanDesc scan;
 	Cache *htcache = ts_hypertable_cache_pin();
-	MemoryContext oldmcxt, relmcxt;
+	MemoryContext oldmctx, relmcxt;
 	StatsContext statsctx = {
 		.stats = stats,
 		.iterator_valid = false,
@@ -515,7 +515,7 @@ ts_telemetry_stats_gather(TelemetryStats *stats)
 	 * Use temporary per-tuple memory context to not accumulate cruft during
 	 * processing of pg_class.
 	 */
-	oldmcxt = MemoryContextSwitchTo(relmcxt);
+	oldmctx = MemoryContextSwitchTo(relmcxt);
 
 	while (true)
 	{
@@ -594,7 +594,7 @@ ts_telemetry_stats_gather(TelemetryStats *stats)
 		}
 	}
 
-	MemoryContextSwitchTo(oldmcxt);
+	MemoryContextSwitchTo(oldmctx);
 	systable_endscan(scan);
 	table_close(rel, AccessShareLock);
 	ts_scan_iterator_close(&statsctx.compressed_chunk_stats_iterator);

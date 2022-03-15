@@ -78,9 +78,9 @@ ts_scan_iterator_alloc_result(const ScanIterator *iterator, Size size)
 static inline void
 ts_scan_iterator_start_scan(ScanIterator *iterator)
 {
-	MemoryContext oldmcxt = MemoryContextSwitchTo(iterator->scankey_mcxt);
+	MemoryContext oldmctx = MemoryContextSwitchTo(iterator->scankey_mcxt);
 	ts_scanner_start_scan(&(iterator)->ctx);
-	MemoryContextSwitchTo(oldmcxt);
+	MemoryContextSwitchTo(oldmctx);
 }
 
 static inline TupleInfo *

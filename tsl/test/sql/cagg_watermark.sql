@@ -7,7 +7,7 @@ select create_hypertable('continuous_agg_test', 'time', chunk_time_interval=> 10
 CREATE OR REPLACE FUNCTION integer_now_test1() returns int LANGUAGE SQL STABLE as $$ SELECT coalesce(max(time), 0) FROM continuous_agg_test $$;
 SELECT set_integer_now_func('continuous_agg_test', 'integer_now_test1');
 
--- watermark tabels start out empty
+-- watermark tables start out empty
 SELECT * FROM _timescaledb_catalog.continuous_aggs_invalidation_threshold;
 SELECT * from _timescaledb_catalog.continuous_aggs_hypertable_invalidation_log;
 

@@ -327,7 +327,7 @@ SELECT * FROM test.show_indexesp('_timescaledb_internal._hyper%_chunk');
  _timescaledb_internal._hyper_3_4_chunk | _timescaledb_internal._hyper_3_4_chunk_partial_index_test_time_idx | {time}  |      | f      | f       | f         | 
 (1 row)
 
--- regerssion test for bug fixed by PR #1008.
+-- regression test for bug fixed by PR #1008.
 -- this caused an assertion failure when a MergeAppend node contained unsorted children
 SET enable_seqscan TO false;
 SET enable_bitmapscan TO false;

@@ -77,7 +77,7 @@ $an->psql_is(
 	'AN shows correct data with UDT from different schema');
 
 
-# Test behavior of size utillities when a data node is not responding
+# Test behavior of size utilities when a data node is not responding
 $an->psql_is(
 	'postgres', "SELECT * FROM hypertable_size('myschema.test')",
 	q[81920],   'AN hypertable_size() returns correct size');

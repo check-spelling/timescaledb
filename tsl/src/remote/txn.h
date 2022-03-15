@@ -47,7 +47,7 @@ extern AsyncRequest *remote_txn_async_send_prepare_transaction(RemoteTxn *entry)
 extern AsyncRequest *remote_txn_async_send_commit_prepared(RemoteTxn *entry);
 extern void remote_txn_report_prepare_transaction_result(RemoteTxn *txn, bool success);
 
-/* Persitent record */
+/* Persistent record */
 extern RemoteTxnId *remote_txn_persistent_record_write(TSConnectionId id);
 extern bool remote_txn_persistent_record_exists(const RemoteTxnId *gid);
 extern int remote_txn_persistent_record_delete_for_data_node(Oid foreign_server_oid,

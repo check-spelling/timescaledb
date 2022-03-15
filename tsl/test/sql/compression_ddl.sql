@@ -123,7 +123,7 @@ FROM pg_tables WHERE tablespace = 'tablespace1';
 
 SELECT decompress_chunk(:'UNCOMPRESSED_CHUNK_NAME');
 
---the compresse chunk was dropped by decompression
+--the compressed chunk was dropped by decompression
 SELECT count(*)
 FROM pg_tables WHERE tablespace = 'tablespace1';
 

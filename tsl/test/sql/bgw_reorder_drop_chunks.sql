@@ -201,7 +201,7 @@ SELECT ts_bgw_params_reset_time();
 \c :TEST_DBNAME :ROLE_DEFAULT_PERM_USER
 
 -----------------------------------
--- test drop chunnks policy runs --
+-- test drop chunks policy runs --
 -----------------------------------
 
 

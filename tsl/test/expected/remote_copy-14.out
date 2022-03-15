@@ -54,7 +54,7 @@ COPY "+ri(k33_')" FROM STDIN (FORCE_NULL (flavor, "))_"), QUOTE '`', FREEZE, FOR
 -- Bad input
 COPY "+ri(k33_')" FROM STDIN WITH DELIMITER ',';
 ERROR:  invalid input syntax for type double precision: "grey"
--- Missing paritioning column
+-- Missing partitioning column
 COPY "+ri(k33_')" (thYme, "))_", "flavor") FROM STDIN;
 ERROR:  unable to use default value for partitioning column "pH"
 -- Missing required column, these generate a WARNING with a transaction id in them (too flimsy to output)

@@ -233,9 +233,9 @@ continuous_agg_update_options(ContinuousAgg *agg, WithClauseResult *with_clause_
 	if (!with_clause_options[ContinuousEnabled].is_default)
 		elog(ERROR, "cannot disable continuous aggregates");
 
-	/* whenever materialized_only is specified, we force a view defintion rewrite
+	/* whenever materialized_only is specified, we force a view definition rewrite
 	 * Do not optimize. post-update.sql often relies on this behavior to update
-	 * cagg view defintions
+	 * cagg view definitions
 	 */
 	if (!with_clause_options[ContinuousViewOptionMaterializedOnly].is_default)
 	{

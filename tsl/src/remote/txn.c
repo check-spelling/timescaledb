@@ -60,7 +60,7 @@ typedef struct RemoteTxn
  * multiple remote commands to be executed (e.g. a join of two tables on one remote
  * node might not be pushed down and instead two different queries are sent
  * to the remote node, one for each table in the join). Since in READ
- * COMMITED the snapshot is refreshed on each command, the semantics are off
+ * COMMITTED the snapshot is refreshed on each command, the semantics are off
  * when multiple commands are meant to be part of the same one.
  *
  * This isn't great but we have no alternative unless we ensure that each access
@@ -486,12 +486,12 @@ remote_txn_deallocate_prepared_stmts_if_needed(RemoteTxn *entry)
  * Ensure state changes are marked successful when a remote transaction
  * completes asynchronously and successfully.
  *
- * We do this in a callback which is guaranteed to be called when a reponse is
+ * We do this in a callback which is guaranteed to be called when a response is
  * received or a timeout occurs.
  *
  * There is no decision on whether to fail or not in this callback; this is
  * only to guarantee that we're always updating the internal connection
- * state. Someone still has to handle the responses elsewehere.
+ * state. Someone still has to handle the responses elsewhere.
  */
 static bool
 on_remote_txn_response(AsyncRequest *req, AsyncResponse *rsp)
@@ -589,7 +589,7 @@ remote_txn_async_send_commit_prepared(RemoteTxn *entry)
 	Assert(entry->remote_txn_id != NULL);
 
 	elog(DEBUG3,
-		 "2pc: commiting remote transaction on connection %p: '%s'",
+		 "2pc: committing remote transaction on connection %p: '%s'",
 		 entry->conn,
 		 remote_txn_id_out(entry->remote_txn_id));
 

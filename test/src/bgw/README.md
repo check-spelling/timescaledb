@@ -25,7 +25,7 @@ which must be created in order for tests to check background worker output.
 worker messages sent since the table was created; `mock_time` is the
 virtualized timestamp ([see that section](## Timer)) at which the message was
 written; `application_name` the name of the application that wrote the message;
-`msg` is the messgage string itself.
+`msg` is the message string itself.
 
 See [`log.c`](log.c) for more detail.
 
@@ -34,7 +34,7 @@ See [`log.c`](log.c) for more detail.
 ## Timer
 
 We virtualize the timer to allow deterministic execution by tests. Our timer
-store a virtual microsecond counter in shared memory, backround processes can
+store a virtual microsecond counter in shared memory, background processes can
 read this counter to determine the current time. The scheduler can "wait" on
 this timer which optionally waits for a process to finish and updates the counter
 to the waited time. The timer can be reset manually (for instance, to allow multiple

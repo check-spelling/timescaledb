@@ -54,7 +54,7 @@ decompressed AS
 decompressed_from_text AS (
   SELECT row_number() OVER () row_number, * FROM (SELECT :DECOMPRESS_FORWARD_CMD FROM (SELECT :'COMPRESSED_AS_TEXT'::text as c) as txt) as q
 )
-SELECT 'Number of rows different between original, decompressed, and decompressed deserializeed (expect 0)', count(*)
+SELECT 'Number of rows different between original, decompressed, and decompressed deserialized (expect 0)', count(*)
 FROM original
 FULL OUTER JOIN decompressed ON (original.row_number = decompressed.row_number)
 FULL OUTER JOIN decompressed_from_text ON (original.row_number = decompressed_from_text.row_number)

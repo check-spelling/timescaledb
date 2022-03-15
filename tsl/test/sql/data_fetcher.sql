@@ -24,7 +24,7 @@ SET client_min_messages TO warning;
 SET client_min_messages TO error;
 
 -- Set a smaller fetch size to ensure that the result is split into
--- mutliple batches.
+-- multiple batches.
 ALTER FOREIGN DATA WRAPPER timescaledb_fdw OPTIONS (ADD fetch_size '100');
 
 -- run the queries using row by row fetcher

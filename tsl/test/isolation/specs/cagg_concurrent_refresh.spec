@@ -94,7 +94,7 @@ setup
 
 }
 
-# Generate some invalidations. Must be done in separate transcations
+# Generate some invalidations. Must be done in separate transactions
 # or otherwise there will be only one invalidation.
 setup
 {

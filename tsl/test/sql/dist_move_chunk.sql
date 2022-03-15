@@ -96,7 +96,7 @@ CALL timescaledb_experimental.copy_chunk(chunk=>'_timescaledb_internal._dist_hyp
 CALL timescaledb_experimental.move_chunk(chunk=>'_timescaledb_internal._dist_hyper_1_2_chunk', source_node=> 'data_node_1', destination_node => 'data_node_2');
 \set ON_ERROR_STOP 1
 
--- do actualy copy
+-- do actually copy
 CALL timescaledb_experimental.copy_chunk(chunk=>'_timescaledb_internal._dist_hyper_1_1_chunk', source_node=> 'data_node_1', destination_node => 'data_node_2');
 SELECT * FROM test.remote_exec(NULL, $$ SELECT * from show_chunks('dist_test'); $$);
 SELECT * FROM test.remote_exec(ARRAY['data_node_2'], $$ SELECT sum(device) FROM _timescaledb_internal._dist_hyper_1_1_chunk; $$);

@@ -22,7 +22,7 @@ teardown {
 # Test concurrent querying and drop chunks. The wait point happens
 # after chunks have been found for table expansion, but before the
 # chunks are locked. Because one chunk will dropped before the lock is
-# acqurired, the chunk should also be ignored.
+# acquired, the chunk should also be ignored.
 
 session "s1"
 step "s1_wp_enable"           { SELECT debug_waitpoint_enable('expanded_chunks'); }

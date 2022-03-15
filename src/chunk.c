@@ -519,7 +519,7 @@ chunk_collides(const Hypertable *ht, const Hypercube *hc)
 }
 
 /*-
- * Resolve collisions and perform alignmment.
+ * Resolve collisions and perform alignment.
  *
  * Chunks collide only if their hypercubes overlap in all dimensions. For
  * instance, the 2D chunks below collide because they overlap in both the X and
@@ -1565,7 +1565,7 @@ chunk_tuple_dropped_filter(const TupleInfo *ti, void *arg)
 /* This is a modified version of chunk_tuple_dropped_filter that does
  * not use ChunkStubScanCtx as the arg, it just ignores the passed in
  * argument.
- * We need a variant as the ScannerCtx assumes that the the filter function
+ * We need a variant as the ScannerCtx assumes that the filter function
  * and tuple_found function share the argument.
  */
 static ScanFilterResult
@@ -2763,7 +2763,7 @@ typedef enum ChunkDeleteResult
  * When chunk rows are preserved, the rows need to be updated to set the
  * 'dropped' flag to TRUE. But since this produces a new tuple into the
  * metadata table we will process also the new tuple in the same loop, which
- * is not only inefficent but could also lead to bugs. For now, we just ignore
+ * is not only inefficient but could also lead to bugs. For now, we just ignore
  * those tuples (the CHUNK_ALREADY_MARKED_DROPPED case), but ideally we
  * shouldn't scan the updated tuples at all since it means double the number
  * of tuples to process.
@@ -3723,7 +3723,7 @@ ts_chunk_do_drop_chunks(Hypertable *ht, int64 older_than, int64 newer_than, int3
 		/* Invalidate the dropped region to indicate that it was modified.
 		 *
 		 * The invalidation will allow the refresh command on a continuous
-		 * aggregate to see that this region was dropped and and will
+		 * aggregate to see that this region was dropped and will
 		 * therefore be able to refresh accordingly.*/
 		for (i = 0; i < num_chunks; i++)
 		{

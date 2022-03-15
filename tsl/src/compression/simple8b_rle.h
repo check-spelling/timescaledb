@@ -374,7 +374,7 @@ simple8brle_compressor_finish(Simple8bRleCompressor *compressor)
 
 	compressed_size = simple8brle_compressor_compressed_size(compressor);
 	/* we use palloc0 despite initializing the entire structure,
-	 * to ensure padding bits are zeroed, and that there's a 0 seletor at the end.
+	 * to ensure padding bits are zeroed, and that there's a 0 selector at the end.
 	 * It would be more efficient to ensure there are no padding bits in the struct,
 	 * and initialize everything ourselves
 	 */
@@ -617,7 +617,7 @@ simple8brle_decompression_iterator_init_reverse(Simple8bRleDecompressionIterator
 
 /* returning a struct produces noticeably better assembly on x86_64 than returning
  * is_done and is_null via pointers; it uses two registers instead of any memory reads.
- * Since it is also easier to read, we perfer it here.
+ * Since it is also easier to read, we prefer it here.
  */
 static Simple8bRleDecompressResult
 simple8brle_decompression_iterator_try_next_forward(Simple8bRleDecompressionIterator *iter)

@@ -58,8 +58,8 @@ LIMIT 10;
 
 -- SELECT DISTINCT will be pushed down in the attribute attno order. This
 -- is ok because "DISTINCT SELECT col1, col2" returns the same values
--- (subject to ORDER BY clauses) as "DISTINCE SELECT col2, col1"
-\qecho SELECT DISTINCE is pushed down in attribute attno order
+-- (subject to ORDER BY clauses) as "DISTINCT SELECT col2, col1"
+\qecho SELECT DISTINCT is pushed down in attribute attno order
 :PREFIX
 SELECT DISTINCT device_id, time
 FROM :TABLE_NAME

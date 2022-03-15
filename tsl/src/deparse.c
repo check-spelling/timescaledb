@@ -807,7 +807,7 @@ deparse_func_call(FunctionCallInfo fcinfo)
 
 	/* If the function has named OUT-only parameters, then number of arguments
 	 * returned by this get_func_arg_info can be greater than
-	 * fcinfo->nargs. But we don't care about OUT-only arguements here. */
+	 * fcinfo->nargs. But we don't care about OUT-only arguments here. */
 	get_func_arg_info(ftup, &argtypes, &argnames, &argmodes);
 
 	appendStringInfo(&sql,

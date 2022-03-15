@@ -237,7 +237,7 @@ ALTER TABLE hyper
 ADD CONSTRAINT hyper_unique_with_looooooooooooooooooooooooooooooooooo_time_key UNIQUE (time);
 ERROR:  relation "hyper_unique_with_looooooooooooooooooooooooooooooooooo_time_key" already exists
 \set ON_ERROR_STOP 1
---uniquness violation fails
+--uniqueness violation fails
 \set ON_ERROR_STOP 0
 INSERT INTO hyper_unique_with_looooooooooooooooooooooooooooooooooooong_name(time, device_id,sensor_1)
 VALUES (1257987700000000000, 'dev2', 11);
@@ -370,7 +370,7 @@ SELECT * FROM test.show_constraints('_timescaledb_internal._hyper_3_6_chunk');
 ALTER TABLE hyper ADD CONSTRAINT hyper_pk_pkey UNIQUE (time);
 ERROR:  relation "hyper_pk_pkey" already exists
 \set ON_ERROR_STOP 1
---uniquness violation fails
+--uniqueness violation fails
 \set ON_ERROR_STOP 0
 BEGIN;
   --error here deferred until commit
@@ -503,7 +503,7 @@ ALTER TABLE hyper_fk ADD CONSTRAINT hyper_fk_device_id_fkey
 FOREIGN KEY (device_id) REFERENCES devices(device_id) DEFERRABLE INITIALLY DEFERRED;
 \set ON_ERROR_STOP 0
 BEGIN;
-  --error deferred until commmit
+  --error deferred until commit
   INSERT INTO hyper_fk(time, device_id,sensor_1) VALUES
   (1257987700000000003, 'dev4', 11);
   SELECT 1;
@@ -726,7 +726,7 @@ SELECT * FROM create_hypertable('hyper_fk_deferred', 'time', chunk_time_interval
 
 \set ON_ERROR_STOP 0
 BEGIN;
-  --error deferred until commmit
+  --error deferred until commit
   INSERT INTO hyper_fk_deferred(time, device_id,sensor_1) VALUES (1257987700000000003, 'dev4', 11);
   SELECT 1;
  ?column? 

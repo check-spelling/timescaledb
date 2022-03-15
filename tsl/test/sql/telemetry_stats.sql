@@ -119,7 +119,7 @@ FROM telemetry_report;
 -- Become an access node by adding a data node
 SELECT * FROM add_data_node('data_node_1', host => 'localhost', database => :'DN_DBNAME_1');
 
--- Telemetry should show one data node and "acces node" status
+-- Telemetry should show one data node and "access node" status
 REFRESH MATERIALIZED VIEW telemetry_report;
 SELECT r -> 'num_data_nodes' AS num_data_nodes,
 	   r -> 'distributed_member' AS distributed_member

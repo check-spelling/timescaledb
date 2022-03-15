@@ -363,7 +363,7 @@ SELECT ts_bgw_params_reset_time();
 
 \c :TEST_DBNAME :ROLE_DEFAULT_PERM_USER
 -----------------------------------
--- test drop chunnks policy runs --
+-- test drop chunks policy runs --
 -----------------------------------
 CREATE TABLE test_drop_chunks_table(time timestamptz, drop_order int);
 SELECT create_hypertable('test_drop_chunks_table', 'time', chunk_time_interval => INTERVAL '1 week');

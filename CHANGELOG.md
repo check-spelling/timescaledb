@@ -30,7 +30,7 @@ The release also includes several bug fixes. Telemetry reports now include new a
 **Bugfixes**
 * #3808 Properly handle `max_retries` option
 * #3863 Fix remote transaction heal logic
-* #3869 Fix ALTER SET/DROP NULL contstraint on distributed hypertable
+* #3869 Fix ALTER SET/DROP NULL constraint on distributed hypertable
 * #3944 Fix segfault in add_compression_policy
 * #3961 Fix crash in EXPLAIN VERBOSE on distributed hypertable
 * #4015 Eliminate float rounding instabilities in interpolate
@@ -176,7 +176,7 @@ We deem it high priority to upgrade.
 This release contains bug fixes since the 2.4.0 release.  We deem it
 high priority to upgrade.
 
-The release fixes continous aggregate refresh for postgres 12.8 and
+The release fixes continuous aggregate refresh for postgres 12.8 and
 13.4, a crash with ALTER TABLE commands and a crash with continuous
 aggregates with HAVING clause.
 
@@ -722,7 +722,7 @@ chunks.
 This release candidate contains bugfixes since the previous release candidate.
 
 **Minor Features**
-* #2520 Support non-transactional distibuted_exec
+* #2520 Support non-transactional distributed_exec
 
 **Bugfixes**
 * #2307 Overflow handling for refresh policy with integer time
@@ -838,7 +838,7 @@ In particular the fixes contained in this maintenance release address issues in 
 drop_chunks and the background worker scheduler.
 
 **Bugfixes**
-* #2059 Improve infering start and stop arguments from gapfill query
+* #2059 Improve inferring start and stop arguments from gapfill query
 * #2067 Support moving compressed chunks
 * #2068 Apply SET TABLESPACE for compressed chunks
 * #2090 Fix index creation with IF NOT EXISTS for existing indexes
@@ -895,7 +895,7 @@ aggregates, drop_chunks and compression.
 * @darko408 for reporting an issue with decompression
 * @dmitri191 for reporting an issue with failing background workers
 * @eduardotsj for reporting an issue with indexes not inheriting tablespace settings
-* @fourseventy for reporting an issue with multiple continuous aggregrates
+* @fourseventy for reporting an issue with multiple continuous aggregates
 * @fvannee for contributing optimizations for pruning inlined functions
 * @jflambert for reporting an issue with failing telemetry jobs
 * @nbouscal for reporting an issue with compression jobs locking referenced tables
@@ -1261,7 +1261,7 @@ and expression indexes.
 
 **Thanks**
 * @shahidhk for reporting an issue with OUTER JOINs
-* @cossbow and @xxGL1TCHxx for reporting reporting issues with ChunkAppend and space partitioning
+* @cossbow and @xxGL1TCHxx for reporting issues with ChunkAppend and space partitioning
 * @est for reporting an issue with CASE expressions in continuous aggregates
 * @devlucasc for reporting the issue with deleting a background worker while a job is running
 * @ryan-shaw for reporting an issue with expression indexes on hypertables with dropped columns
@@ -1540,7 +1540,7 @@ This release contains bugfixes.
 
 ## 1.1.0 (2018-12-13)
 
-Our 1.1 release introduces beta support for PG 11, as well as several performance optimizations aimed at improving chunk exclusion for read queries. We are also packaging our new timescale-tune tool (currently in beta) with our Debian and Linux releases. If you encounter any issues with our beta features, please file a Github issue.
+Our 1.1 release introduces beta support for PG 11, as well as several performance optimizations aimed at improving chunk exclusion for read queries. We are also packaging our new timescale-tune tool (currently in beta) with our Debian and Linux releases. If you encounter any issues with our beta features, please file a GitHub issue.
 
 **Potential breaking changes**
 - In addition to optimizing first() / last() to utilize indices for non-group-by queries, we adjusted its sorting behavior to match that of PostgreSQL’s max() and min() functions. Previously, if the column being sorted had NULL values, a NULL would be returned. First() and last() now instead ignore NULL values.
@@ -1658,7 +1658,7 @@ This release is our second 1.0 release candidate. We expect to only merge bug fi
 * [6731c86] Add support for pre-release version checks
 
 **Thanks**
-* @did-g for an improvement to our macros to make compiliers happy
+* @did-g for an improvement to our macros to make compilers happy
 * @mx781 and @HeikoOnnebrink for reporting issues with working with pg_dump fully
 * @znbang and @timolson for reporting a bug that was causing telemetry to fail
 * @alanhamlett for reporting an issue with spinlocks when handling SIGTERMs
@@ -2091,7 +2091,7 @@ complete, depending on the size of your database**
 * [da09f24] Limit growth of range table during chunk inserts
 * [85dee79] Fix issue with creating expression indexes
 * [844ff7f] Fix memory leak due to constraint expressions.
-* [e90d3ee] Consider precvious CIS state in copy FROM file to rel
+* [e90d3ee] Consider previous CIS state in copy FROM file to rel
 * [56d632f] Fix bug with pointer assignment after realloc
 * [f97d624] Make event trigger creation idempotent
 
@@ -2162,7 +2162,7 @@ complete, depending on the size of your database**
 
 **Thanks**
 * @raycheung for reporting a segfault in `first`/`last`
-* @meotimdihia, @noyez, and @andrew-blake for reporting issues with `UNQIUE` and other types of constraints
+* @meotimdihia, @noyez, and @andrew-blake for reporting issues with `UNIQUE` and other types of constraints
 
 
 ## 0.4.2 (2017-09-06)
@@ -2268,7 +2268,7 @@ a similar process on [our docs](http://docs.timescale.com/getting-started/setup/
 * [14ac892] Fix possible segfault
 * [0f4169c] Fix check constraint on dimension table
 * [71c5e78] Fix and refactor tablespace support
-* [5452dc5] Fix partiton functions; bug fixes (including memory)
+* [5452dc5] Fix partition functions; bug fixes (including memory)
 * [e75cd7e] Finer grained memory management
 * [3c460f0] Fix partitioning, memory, and tests
 * [fe51d8d] Add native scan for the chunk table

@@ -239,7 +239,7 @@ FROM unnest(ARRAY[
     TIMESTAMP '2011-01-02 01:02:29'
     ]) AS time;
 
---time_bucket with timezone should mimick date_trunc
+--time_bucket with timezone should mimic date_trunc
 SET timezone TO 'UTC';
 SELECT time, time_bucket(INTERVAL '1 hour', time), date_trunc('hour', time)
 FROM unnest(ARRAY[

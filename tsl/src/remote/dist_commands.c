@@ -351,7 +351,7 @@ ts_dist_cmd_total_row_count(DistCmdResult *result)
 /*
  * Convert an expected scalar return value.
  *
- * Convert the result of a remote function invokation returning a single
+ * Convert the result of a remote function invocation returning a single
  * scalar value. For example, a function returning a bool.
  */
 Datum

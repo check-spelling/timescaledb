@@ -653,9 +653,9 @@ gorilla_decompression_iterator_try_next_forward(DecompressionIterator *iter_base
  *     nbits: 0    4         5      3
  *       xor:   1 2 3 4 5 a b c d e Q
  * that is, tag1 represents the transition between one value in the number of
- * leading/used bits arrays, and thus can be transversed in any order, whenever
+ * leading/used bits arrays, and thus can be traversed in any order, whenever
  * we see a `1`, we switch from using are current numbers to the "next" in
- * whichever iteration order we're following. When transversing in reverse order
+ * whichever iteration order we're following. When traversing in reverse order
  * there is a little subtlety in that we run out of lengths before we run out of
  * tag1 bits (there's an implicit leading `0`), but at that point we've run out
  * of values anyway, so it does not matter.

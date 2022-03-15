@@ -28,7 +28,7 @@ BEGIN
 END
 $BODY$;
 
--- Set a fixed memory cache size to make tests determinstic
+-- Set a fixed memory cache size to make tests deterministic
 -- (independent of available machine memory)
 SELECT * FROM test.set_memory_cache_size('2GB');
 
@@ -118,7 +118,7 @@ SELECT * FROM set_adaptive_chunking('test_adaptive', '1MB');
 SELECT id, hypertable_id, interval_length FROM _timescaledb_catalog.dimension;
 
 -- Generate data to create chunks. We use the hash of the time value
--- to get determinstic location IDs so that we always spread these
+-- to get deterministic location IDs so that we always spread these
 -- values the same way across space partitions
 INSERT INTO test_adaptive
 SELECT time, random() * 35, _timescaledb_internal.get_partition_hash(time) FROM

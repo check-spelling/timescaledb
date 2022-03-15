@@ -1307,7 +1307,7 @@ SELECT ctid, time, val FROM _timescaledb_internal._hyper_2_4_chunk ORDER BY time
 -- SELECT ctid, time, val FROM _timescaledb_internal._hyper_2_3_chunk ORDER BY time;
 -- SELECT ctid, time, val FROM _timescaledb_internal._hyper_2_4_chunk ORDER BY time;
 -- There's a special case when a tuple is inserted earlier in the same txn
--- NOTE: this reorder vaccums the one deleted in the previous test
+-- NOTE: this reorder vacuums the one deleted in the previous test
 -- But we disallow reorder within transactions for now, if we enable it, we should
 -- enable the test
 -- BEGIN;

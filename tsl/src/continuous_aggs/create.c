@@ -178,7 +178,7 @@ typedef struct CAggTimebucketInfo
 							/* This should also be the column used by time_bucket */
 	Oid htpartcoltype;
 	int64 htpartcol_interval_len; /* interval length setting for primary partitioning column */
-	int64 bucket_width;			  /* bucket_width of time_bucket, stores BUCKET_WIDHT_VARIABLE for
+	int64 bucket_width;			  /* bucket_width of time_bucket, stores BUCKET_WIDTH_VARIABLE for
 									 variable-sized buckets */
 	Interval *interval;			  /* stores the interval, NULL if not specified */
 	const char *timezone;		  /* the name of the timezone, NULL if not specified */
@@ -527,7 +527,7 @@ mattablecolumninfo_add_mattable_index(MatTableColumnInfo *matcolinfo, Hypertable
  *
  *  Parameters:
  *    mat_rel: relation information for the materialization table
- *    origquery_tblinfo: - user query's tbale information. used for setting up
+ *    origquery_tblinfo: - user query's table information. used for setting up
  *        thr partitioning of the hypertable.
  *    tablespace_name: Name of the tablespace for the materialization table.
  *    table_access_method: Name of the table access method to use for the
@@ -1286,7 +1286,7 @@ get_finalize_aggref(Aggref *inp, Var *partial_state_var)
 {
 	Aggref *aggref;
 	TargetEntry *te;
-	char *agggregate_signature;
+	char *aggregate_signature;
 	Const *aggregate_signature_const, *collation_schema_const, *collation_name_const,
 		*input_types_const, *return_type_const;
 	Oid name_array_type_oid = get_array_type(NAMEOID);
@@ -1319,12 +1319,12 @@ get_finalize_aggref(Aggref *inp, Var *partial_state_var)
 	aggref->aggsplit = AGGSPLIT_SIMPLE;
 	aggref->location = -1;
 	/* construct the arguments */
-	agggregate_signature = format_procedure_qualified(inp->aggfnoid);
+	aggregate_signature = format_procedure_qualified(inp->aggfnoid);
 	aggregate_signature_const = makeConst(TEXTOID,
 										  -1,
 										  DEFAULT_COLLATION_OID,
 										  -1,
-										  CStringGetTextDatum(agggregate_signature),
+										  CStringGetTextDatum(aggregate_signature),
 										  false,
 										  false /* passbyval */
 	);
@@ -1463,7 +1463,7 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 	ColumnDef *col;
 	Var *var;
 	Oid coltype, colcollation;
-	int32 coltypmod;
+	int32 coltypemod;
 
 	if (contain_mutable_functions(input))
 	{
@@ -1481,9 +1481,9 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 			PRINT_MATCOLNAME(colbuf, "agg", original_query_resno, matcolno);
 			colname = colbuf;
 			coltype = BYTEAOID;
-			coltypmod = -1;
+			coltypemod = -1;
 			colcollation = InvalidOid;
-			col = makeColumnDef(colname, coltype, coltypmod, colcollation);
+			col = makeColumnDef(colname, coltype, coltypemod, colcollation);
 			part_te = makeTargetEntry((Expr *) fexpr, matcolno, pstrdup(colname), false);
 		}
 		break;
@@ -1519,9 +1519,9 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 				out->mat_groupcolname_list = lappend(out->mat_groupcolname_list, pstrdup(colname));
 			}
 			coltype = exprType((Node *) tle->expr);
-			coltypmod = exprTypmod((Node *) tle->expr);
+			coltypemod = exprTypmod((Node *) tle->expr);
 			colcollation = exprCollation((Node *) tle->expr);
-			col = makeColumnDef(colname, coltype, coltypmod, colcollation);
+			col = makeColumnDef(colname, coltype, coltypemod, colcollation);
 			part_te = (TargetEntry *) copyObject(input);
 			/*need to project all the partial entries so that materialization table is filled */
 			part_te->resjunk = false;
@@ -1546,7 +1546,7 @@ mattablecolumninfo_addentry(MatTableColumnInfo *out, Node *input, int original_q
 	Assert(part_te != NULL);
 	out->matcollist = lappend(out->matcollist, col);
 	out->partial_seltlist = lappend(out->partial_seltlist, part_te);
-	var = makeVar(1, matcolno, coltype, coltypmod, colcollation, 0);
+	var = makeVar(1, matcolno, coltype, coltypemod, colcollation, 0);
 	return var;
 }
 
@@ -1639,7 +1639,7 @@ add_partialize_column(Aggref *agg_to_partialize, AggPartCxt *cxt)
 									  cxt->original_query_resno);
 	cxt->addcol = true;
 	/* step 2: create finalize_agg expr using var
-	 * for the clumn added to the materialization table
+	 * for the column added to the materialization table
 	 */
 	/* This is a var for the column we created */
 	newagg = get_finalize_aggref(agg_to_partialize, var);
@@ -1759,7 +1759,7 @@ tlist_aliases - aliases for the view select list
 materialization table columns are created . This will be returned in  the mattblinfo
 
 DO NOT modify orig_query. Make a copy if needed.
-SIDE_EFFCT: the data structure in mattblinfo is modified as a side effect by adding new materialize
+SIDE_EFFECT: the data structure in mattblinfo is modified as a side effect by adding new materialize
 table columns and partialize exprs.
 */
 static void
@@ -1778,7 +1778,7 @@ finalizequery_init(FinalizeQueryInfo *inp, Query *orig_query, MatTableColumnInfo
 	cxt.ignore_aggoid = InvalidOid;
 
 	/* We want all the entries in the targetlist (resjunk or not)
-	 * in the materialization  table defintion so we include group-by/having clause etc.
+	 * in the materialization  table definition so we include group-by/having clause etc.
 	 * We have to do 3 things here: 1) create a column for mat table , 2) partialize_expr to
 	 * populate it and 3) modify the target entry to be a finalize_expr that selects from the
 	 * materialization table
@@ -1791,7 +1791,7 @@ finalizequery_init(FinalizeQueryInfo *inp, Query *orig_query, MatTableColumnInfo
 		cxt.original_query_resno = resno;
 		/* if tle has aggrefs , get the corresponding
 		 * finalize_agg expression and save it in modte
-		 * also add correspong materialization table column info
+		 * also add correspond materialization table column info
 		 * for the aggrefs in tle. */
 		modte = (TargetEntry *) expression_tree_mutator((Node *) modte,
 														add_aggregate_partialize_mutator,
@@ -1938,7 +1938,7 @@ fixup_userview_query_tlist(Query *userquery, List *tlist_aliases)
  * CREATE VIEW mcagg ...
  * AS  select a, min(b)+max(d) from foo group by a,timebucket(a);
  *
- * Step 1. create a materialiation table which stores the partials for the
+ * Step 1. create a materialization table which stores the partials for the
  * aggregates and the grouping columns + internal columns.
  * So we have a table like _materialization_hypertable
  * with columns:
@@ -1961,7 +1961,7 @@ fixup_userview_query_tlist(Query *userquery, List *tlist_aliases)
  * group by <internal-columns> , a , timebucket(a);
  *
  * Notes: ViewStmt->query is the raw parse tree
- * panquery is the output of running parse_anlayze( ViewStmt->query)
+ * panquery is the output of running parse_analyze( ViewStmt->query)
  *               so don't recreate invalidation trigger.
 
  * Since 1.7, we support real time aggregation.
@@ -2323,7 +2323,7 @@ static Oid
 cagg_get_boundary_converter_funcoid(Oid typoid)
 {
 	char *function_name;
-	Oid argtyp[] = { INT8OID };
+	Oid argtype[] = { INT8OID };
 
 	switch (typoid)
 	{
@@ -2349,7 +2349,7 @@ cagg_get_boundary_converter_funcoid(Oid typoid)
 	}
 
 	List *func_name = list_make2(makeString(INTERNAL_SCHEMA_NAME), makeString(function_name));
-	Oid converter_oid = LookupFuncName(func_name, lengthof(argtyp), argtyp, false);
+	Oid converter_oid = LookupFuncName(func_name, lengthof(argtype), argtype, false);
 
 	Assert(OidIsValid(converter_oid));
 
@@ -2413,13 +2413,13 @@ build_conversion_call(Oid type, FuncExpr *boundary)
 static FuncExpr *
 build_boundary_call(int32 ht_id, Oid type)
 {
-	Oid argtyp[] = { INT4OID };
+	Oid argtype[] = { INT4OID };
 	FuncExpr *boundary;
 
 	Oid boundary_func_oid =
 		LookupFuncName(list_make2(makeString(INTERNAL_SCHEMA_NAME), makeString(BOUNDARY_FUNCTION)),
-					   lengthof(argtyp),
-					   argtyp,
+					   lengthof(argtype),
+					   argtype,
 					   false);
 	List *func_args =
 		list_make1(makeConst(INT4OID, -1, InvalidOid, 4, Int32GetDatum(ht_id), false, true));

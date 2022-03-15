@@ -424,7 +424,7 @@ END
 $BODY$;
 
 --
--- Test starting more jobs than availlable workers
+-- Test starting more jobs than available workers
 --
 \c :TEST_DBNAME :ROLE_SUPERUSER
 TRUNCATE bgw_log;

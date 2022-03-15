@@ -171,7 +171,7 @@ SELECT * FROM show_tablespaces('tspace_2dim');
 
 \c :TEST_DBNAME :ROLE_SUPERUSER
 -- It should now be possible to revoke PERM_USER_2 from PERM_USER
--- since tablespace2 is no longer attched to tspace_2dim
+-- since tablespace2 is no longer attached to tspace_2dim
 REVOKE :ROLE_DEFAULT_PERM_USER_2 FROM :ROLE_DEFAULT_PERM_USER;
 SET ROLE :ROLE_DEFAULT_PERM_USER;
 

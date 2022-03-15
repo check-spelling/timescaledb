@@ -56,7 +56,7 @@
  *   objects after a transaction completes.
  * - connection configuration suitable for TimescaleDB.
  *
- * NOTE that it is strongly adviced that connection-related functions do not
+ * NOTE that it is strongly advised that connection-related functions do not
  * throw exceptions with, e.g., elog(ERROR). While exceptions can be caught
  * with PG_TRY-CATCH for cleanup, it is not possible to safely continue the
  * transaction that threw the exception as if no error occurred (see the
@@ -1062,7 +1062,7 @@ remote_connection_check_extension(TSConnection *conn)
 		case 1:
 			break;
 
-		default: /* something strange happend */
+		default: /* something strange happened */
 			ereport(WARNING,
 					(errcode(ERRCODE_TS_DATA_NODE_INVALID_CONFIG),
 					 errmsg("more than one TimescaleDB extension loaded")));
@@ -1500,7 +1500,7 @@ options_contain(List *options, const char *key)
 }
 
 /*
- * Add athentication info (username and optionally password) to the connection
+ * Add authentication info (username and optionally password) to the connection
  * options).
  */
 List *
@@ -1927,7 +1927,7 @@ remote_connection_cancel_query(TSConnection *conn)
 			case CONN_OK:
 				/* Successfully, drained */
 			case CONN_NO_RESPONSE:
-				/* No response, likely beceause there was nothing to cancel */
+				/* No response, likely because there was nothing to cancel */
 				success = true;
 				break;
 			default:

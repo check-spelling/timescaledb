@@ -95,7 +95,7 @@ get_default_algorithm_id(Oid typeoid)
 
 		default:
 		{
-			/* use dictitionary if possible, otherwise use array */
+			/* use dictionary if possible, otherwise use array */
 			TypeCacheEntry *tentry =
 				lookup_type_cache(typeoid, TYPECACHE_EQ_OPR_FINFO | TYPECACHE_HASH_PROC_FINFO);
 			if (tentry->hash_proc_finfo.fn_addr == NULL || tentry->eq_opr_finfo.fn_addr == NULL)
@@ -738,7 +738,7 @@ validate_existing_constraints(Hypertable *ht, CompressColInfo *colinfo)
 		Form_pg_constraint form = (Form_pg_constraint) GETSTRUCT(tuple);
 
 		/* we check primary ,unique and exclusion constraints.
-		 * move foreign key constarints over to compression table
+		 * move foreign key constraints over to compression table
 		 * ignore triggers
 		 */
 		if (form->contype == CONSTRAINT_CHECK || form->contype == CONSTRAINT_TRIGGER)

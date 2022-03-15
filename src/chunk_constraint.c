@@ -224,11 +224,11 @@ ts_chunk_constraints_add_from_tuple(ChunkConstraints *ccs, const TupleInfo *ti)
 	Name hypertable_constraint_name;
 	bool should_free;
 	HeapTuple tuple = ts_scanner_fetch_heap_tuple(ti, false, &should_free);
-	MemoryContext oldcxt;
+	MemoryContext oldctx;
 
 	heap_deform_tuple(tuple, ts_scanner_get_tupledesc(ti), values, nulls);
 
-	oldcxt = MemoryContextSwitchTo(ccs->mctx);
+	oldctx = MemoryContextSwitchTo(ccs->mctx);
 
 	constraint_name =
 		DatumGetName(values[AttrNumberGetAttrOffset(Anum_chunk_constraint_constraint_name)]);
@@ -254,7 +254,7 @@ ts_chunk_constraints_add_from_tuple(ChunkConstraints *ccs, const TupleInfo *ti)
 							  NameStr(*constraint_name),
 							  NameStr(*hypertable_constraint_name));
 
-	MemoryContextSwitchTo(oldcxt);
+	MemoryContextSwitchTo(oldctx);
 
 	if (should_free)
 		heap_freetuple(tuple);
@@ -691,7 +691,7 @@ chunk_constraint_delete_metadata(TupleInfo *ti)
 
 		/*
 		 * If this is an index constraint, we need to cleanup the index
-		 * metadata. Don't drop the index though, since that will happend when
+		 * metadata. Don't drop the index though, since that will happened when
 		 * the constraint is dropped.
 		 */
 		if (OidIsValid(index_relid))

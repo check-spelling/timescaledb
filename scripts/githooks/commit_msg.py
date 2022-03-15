@@ -51,7 +51,7 @@ class GitCommitMessage:
 
         return self
 
-    def check_subject_body_separtor(self):
+    def check_subject_body_separator(self):
         'Rule 1: Separate subject from body with a blank line'
 
         if len(self.body_lines) > 0:
@@ -122,11 +122,11 @@ class GitCommitMessage:
 
     def check_body_uses_why(self):
         'Rule 7: Use the body to explain what and why vs. how'
-        # Not enforcable
+        # Not enforceable
         return True
 
     rule_funcs = [
-        check_subject_body_separtor,
+        check_subject_body_separator,
         check_subject_limit,
         check_subject_capitalized,
         check_subject_no_period,

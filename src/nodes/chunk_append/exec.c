@@ -36,10 +36,10 @@ static TupleTableSlot *chunk_append_exec(CustomScanState *node);
 static void chunk_append_begin(CustomScanState *node, EState *estate, int eflags);
 static void chunk_append_end(CustomScanState *node);
 static void chunk_append_rescan(CustomScanState *node);
-static Size chunk_append_estimate_dsm(CustomScanState *node, ParallelContext *pcxt);
-static void chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pcxt,
+static Size chunk_append_estimate_dsm(CustomScanState *node, ParallelContext *pctx);
+static void chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pctx,
 										void *coordinate);
-static void chunk_append_reinitialize_dsm(CustomScanState *node, ParallelContext *pcxt,
+static void chunk_append_reinitialize_dsm(CustomScanState *node, ParallelContext *pctx,
 										  void *coordinate);
 static void chunk_append_initialize_worker(CustomScanState *node, shm_toc *toc, void *coordinate);
 
@@ -94,7 +94,7 @@ ts_chunk_append_state_create(CustomScan *cscan)
 	state->choose_next_subplan = choose_next_subplan_non_parallel;
 
 	state->exclusion_ctx = AllocSetContextCreate(CurrentMemoryContext,
-												 "ChunkApppend exclusion",
+												 "ChunkAppend exclusion",
 												 ALLOCSET_DEFAULT_SIZES);
 
 	return (Node *) state;
@@ -568,7 +568,7 @@ chunk_append_rescan(CustomScanState *node)
  * custom scan provider supports parallel execution.
  */
 static Size
-chunk_append_estimate_dsm(CustomScanState *node, ParallelContext *pcxt)
+chunk_append_estimate_dsm(CustomScanState *node, ParallelContext *pctx)
 {
 	ChunkAppendState *state = (ChunkAppendState *) node;
 	return add_size(offsetof(ParallelChunkAppendState, finished),
@@ -584,7 +584,7 @@ chunk_append_estimate_dsm(CustomScanState *node, ParallelContext *pcxt)
  * provider supports parallel execution.
  */
 static void
-chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pcxt, void *coordinate)
+chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pctx, void *coordinate)
 {
 	ChunkAppendState *state = (ChunkAppendState *) node;
 	ParallelChunkAppendState *pstate = (ParallelChunkAppendState *) coordinate;
@@ -601,7 +601,7 @@ chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pcxt, void *
 	 */
 	state->choose_next_subplan = choose_next_subplan_for_worker;
 	state->current = INVALID_SUBPLAN_INDEX;
-	state->pcxt = pcxt;
+	state->pctx = pctx;
 	state->pstate = pstate;
 }
 
@@ -616,7 +616,7 @@ chunk_append_initialize_dsm(CustomScanState *node, ParallelContext *pcxt, void *
  * but it's best not to rely on that ordering.
  */
 static void
-chunk_append_reinitialize_dsm(CustomScanState *node, ParallelContext *pcxt, void *coordinate)
+chunk_append_reinitialize_dsm(CustomScanState *node, ParallelContext *pctx, void *coordinate)
 {
 	ChunkAppendState *state = (ChunkAppendState *) node;
 	ParallelChunkAppendState *pstate = (ParallelChunkAppendState *) coordinate;

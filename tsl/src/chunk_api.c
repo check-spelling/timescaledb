@@ -1619,7 +1619,7 @@ chunk_api_get_chunk_stats(FunctionCallInfo fcinfo, bool col_stats)
 				/* If this is a distributed hypertable, we fetch stats from
 				 * remote nodes */
 				fetch_remote_chunk_stats(ht, fcinfo, col_stats);
-				/* Make updated stats visible so that we can retreive them locally below */
+				/* Make updated stats visible so that we can retrieve them locally below */
 				CommandCounterIncrement();
 			}
 

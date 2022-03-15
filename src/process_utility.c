@@ -301,7 +301,7 @@ check_altertable_add_column_for_compressed(Hypertable *ht, ColumnDef *col)
 		{
 			ereport(ERROR,
 					(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
-					 errmsg("cannot add column with NOT NULL contraint without default "
+					 errmsg("cannot add column with NOT NULL constraint without default "
 							"to a hypertable that has compression enabled")));
 		}
 	}
@@ -2352,7 +2352,7 @@ typedef struct HypertableIndexOptions
 	Oid barrier_table;
 
 	/*
-	 * if max_chunks >= 0 we'll create indicies on at most max_chunks, and
+	 * if max_chunks >= 0 we'll create indices on at most max_chunks, and
 	 * leave the table marked as Invalid when the command ends.
 	 */
 	int32 max_chunks;
@@ -2975,7 +2975,7 @@ process_create_table_end(Node *parsetree)
 }
 
 static inline const char *
-typename_get_unqual_name(TypeName *tn)
+typename_get_unqualified_name(TypeName *tn)
 {
 	return strVal(llast(tn->names));
 }
@@ -3008,7 +3008,7 @@ static void
 process_alter_column_type_end(Hypertable *ht, AlterTableCmd *cmd)
 {
 	ColumnDef *coldef = (ColumnDef *) cmd->def;
-	Oid new_type = TypenameGetTypid(typename_get_unqual_name(coldef->typeName));
+	Oid new_type = TypenameGetTypid(typename_get_unqualified_name(coldef->typeName));
 	Dimension *dim =
 		ts_hyperspace_get_mutable_dimension_by_name(ht->space, DIMENSION_TYPE_ANY, cmd->name);
 
@@ -4339,7 +4339,7 @@ process_ddl_event_sql_drop(EventTriggerData *trigdata)
 TS_FUNCTION_INFO_V1(ts_timescaledb_process_ddl_event);
 
 /*
- * Event trigger hook for DDL commands that have alread been handled by
+ * Event trigger hook for DDL commands that have already been handled by
  * PostgreSQL (i.e., "ddl_command_end" and "sql_drop" events).
  */
 Datum

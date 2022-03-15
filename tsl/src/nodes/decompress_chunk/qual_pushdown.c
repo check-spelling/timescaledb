@@ -99,7 +99,7 @@ get_compression_info_from_var(QualPushdownContext *context, Var *var)
 	if (var->varno != context->chunk_rel->relid)
 		return NULL;
 
-	/* ignore system attibutes or whole row references */
+	/* ignore system attributes or whole row references */
 	if (var->varattno <= 0)
 		return NULL;
 

@@ -456,7 +456,7 @@ bucket_function_serialize(const ContinuousAggsBucketFunction *bf)
 }
 
 /*
- * Deserielizes a string into a palloc'ated ContinuousAggsBucketFunction*. Note
+ * Deserializes a string into a palloc'ated ContinuousAggsBucketFunction*. Note
  * that NULL is also a valid return value.
  *
  * See bucket_function_serialize() for more details.

@@ -681,7 +681,7 @@ CREATE TABLE conditions(
        PRIMARY KEY (time,device)
 );
 SELECT * FROM create_distributed_hypertable('conditions', 'time', 'device', 3);
-WARNING:  insuffient number of partitions for dimension "device"
+WARNING:  insufficient number of partitions for dimension "device"
  hypertable_id | schema_name | table_name | created 
 ---------------+-------------+------------+---------
              4 | public      | conditions | t
@@ -1116,7 +1116,7 @@ ERROR:  cannot change privileges on multiple databases
 \set ON_ERROR_STOP 1
 -- Test disabling DDL commands on global objects
 SET timescaledb_experimental.enable_distributed_ddl TO 'off';
--- ALTER DEFAULT PRIVELEGES
+-- ALTER DEFAULT PRIVILEGES
 ALTER DEFAULT PRIVILEGES GRANT INSERT ON TABLES TO :ROLE_1;
 DEBUG:  skipping dist DDL on object: ALTER DEFAULT PRIVILEGES GRANT INSERT ON TABLES TO test_role_1;
 -- GRANT/REVOKE

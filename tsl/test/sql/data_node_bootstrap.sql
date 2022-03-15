@@ -182,7 +182,7 @@ DROP DATABASE bootstrap_test;
 \c :TEST_DBNAME :ROLE_CLUSTER_SUPERUSER;
 
 -- Pick an alternative locale for testing from the list of installed
--- collations. This locale needs to be differnt from the current
+-- collations. This locale needs to be different from the current
 -- database's locale. We pick it from the list of collations in a
 -- platform agnostic way since, e.g., Linux and Windows have very
 -- different locale names.

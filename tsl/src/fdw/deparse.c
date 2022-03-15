@@ -330,7 +330,7 @@ contain_mutable_functions_checker(Oid func_id, void *context)
 
 /*
  * Expression walker based on the corresponding PostgreSQL function. We're
- * using a custom checker function, so need a modifed version of this walker.
+ * using a custom checker function, so need a modified version of this walker.
  */
 static bool
 contain_mutable_functions_walker(Node *node, void *context)
@@ -982,7 +982,7 @@ deparseDistinctClause(StringInfo buf, deparse_expr_cxt *context, List *pathkeys)
 	 *
 	 * The distinctClause entries will be referring to the
 	 * varno pulled above, so adjust the scanrel temporarily
-	 * for the deparsing of the distint clauses
+	 * for the deparsing of the distinct clauses
 	 *
 	 * Note that we deparse the targetlist below only for the
 	 * "DISTINCT ON" case. For DISTINCT, the regular targetlist
@@ -1298,7 +1298,7 @@ append_chunk_exclusion_condition(deparse_expr_cxt *context, bool use_alias)
 		appendStringInfo(buf, "%s%d, ", REL_ALIAS_PREFIX, scanrel->relid);
 	else
 	{
-		/* use a qualfied relation name */
+		/* use a qualified relation name */
 		RangeTblEntry *rte = planner_rt_fetch(scanrel->relid, context->root);
 		Relation rel = table_open(rte->relid, NoLock);
 		deparseRelation(buf, rel);

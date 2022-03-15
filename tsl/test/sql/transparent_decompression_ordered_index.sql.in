@@ -52,7 +52,7 @@ SELECT '2020-01-01 0:00:00+0',
     5,
     generate_series(1, 5, 1);
 
--- misisng values device_id = 7
+-- missing values device_id = 7
 CREATE TABLE device_tbl (
     device_id int,
     descr text

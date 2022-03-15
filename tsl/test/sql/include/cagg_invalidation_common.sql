@@ -320,7 +320,7 @@ CALL refresh_continuous_aggregate('cond_10', 1, 40);
 
 SELECT * FROM cagg_invals;
 
--- Refresh whithout cutting (in area where there are no
+-- Refresh without cutting (in area where there are no
 -- invalidations). Merging of overlapping entries should still happen:
 INSERT INTO conditions VALUES (15, 1, 23.4), (42, 1, 23.4);
 
@@ -570,7 +570,7 @@ SELECT _timescaledb_internal.invalidation_hyper_log_add_entry(:thresh_hyper_id, 
 \set ON_ERROR_STOP 1
 \endif
 
--- Test that threshold is initilized to min value when there's no data
+-- Test that threshold is initialized to min value when there's no data
 -- and we specify an infinite end. Note that the min value may differ
 -- depending on time type.
 CALL refresh_continuous_aggregate('thresh_2', 0, NULL);
@@ -755,7 +755,7 @@ WHERE cagg_id = :cond_10_id;
 -- should trigger two individual refreshes
 CALL refresh_continuous_aggregate('cond_10', 0, 200);
 
--- Allow at most 5 individual invalidations per refreshe
+-- Allow at most 5 individual invalidations per refresh
 SET timescaledb.materializations_per_refresh_window=5;
 
 -- Insert into every second bucket

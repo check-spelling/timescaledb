@@ -109,7 +109,7 @@ data_format_create_att_conv_in_metadata(TupleDesc tupdesc, bool force_text)
 													  &att_conv_metadata->ioparams[i]);
 			if (prev == !isbinary)
 			{
-				i = 0; /* in/out functions has to be eiher all binary or all text (PostgreSQL
+				i = 0; /* in/out functions has to be either all binary or all text (PostgreSQL
 						  limitation). Let's restart function discovery process */
 				prev = false;
 				continue;

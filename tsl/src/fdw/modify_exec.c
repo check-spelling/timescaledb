@@ -80,7 +80,7 @@ typedef struct TsFdwModifyState
 
 	bool prepared;
 	int num_data_nodes;
-	StmtParams *stmt_params; /* prepared statement paremeters */
+	StmtParams *stmt_params; /* prepared statement parameters */
 	TsFdwDataNodeState data_nodes[FLEXIBLE_ARRAY_MEMBER];
 } TsFdwModifyState;
 

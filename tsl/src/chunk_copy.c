@@ -615,7 +615,7 @@ chunk_copy_stage_sync(ChunkCopy *cc)
 
 	/*
 	 * Transaction blocks run in REPEATABLE READ mode in the connection pool.
-	 * However this wait_subscription_sync procedure needs to refresh the subcription
+	 * However this wait_subscription_sync procedure needs to refresh the subscription
 	 * sync status data and hence needs a READ COMMITTED transaction isolation
 	 * level for that.
 	 */
@@ -743,7 +743,7 @@ static const ChunkCopyStage chunk_copy_stages[] = {
 	/*
 	 * Begin data transfer and wait for completion.
 	 * The corresponding cleanup function should just disable the subscription so
-	 * that earlier steps above can drop the subcription/publication cleanly.
+	 * that earlier steps above can drop the subscription/publication cleanly.
 	 */
 	{ CCS_SYNC_START, chunk_copy_stage_sync_start, chunk_copy_stage_sync_start_cleanup },
 	{ CCS_SYNC, chunk_copy_stage_sync, NULL },

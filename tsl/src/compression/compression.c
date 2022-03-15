@@ -120,7 +120,7 @@ typedef struct RowCompressor
 	BulkInsertState bistate;
 
 	/* in theory we could have more input columns than outputted ones, so we
-	   store the number of inputs/compressors seperately*/
+	   store the number of inputs/compressors separately*/
 	int n_input_columns;
 
 	/* info about each column */
@@ -354,7 +354,7 @@ compress_chunk_populate_keys(Oid in_table, const ColumnCompressionInfo **columns
 	for (i = 0; i < n_columns; i++)
 	{
 		const ColumnCompressionInfo *column = columns[i];
-		/* valid values for segmentby_columnn_index and orderby_column_index
+		/* valid values for segmentby_column_index and orderby_column_index
 		   are > 0 */
 		int16 segment_offset = column->segmentby_column_index - 1;
 		int16 orderby_offset = column->orderby_column_index - 1;
@@ -453,7 +453,7 @@ compress_chunk_populate_sort_info_for_column(Oid table, const ColumnCompressionI
 			 NameStr(column->attname));
 
 	att_tup = (Form_pg_attribute) GETSTRUCT(tp);
-	/* Other valdation checks beyond just existence of a valid comparison operator could be useful
+	/* Other validation checks beyond just existence of a valid comparison operator could be useful
 	 */
 
 	*att_nums = att_tup->attnum;
@@ -684,8 +684,8 @@ row_compressor_update_group(RowCompressor *row_compressor, TupleTableSlot *row)
 		Assert(column->compressor == NULL);
 
 		MemoryContextSwitchTo(row_compressor->per_row_ctx->parent);
-		/* Performance Improvment: We should just use array access here; everything is guaranteed to
-		   be fetched */
+		/* Performance Improvement: We should just use array access here; everything is guaranteed
+		   to be fetched */
 		val = slot_getattr(row, AttrOffsetGetAttrNumber(col), &is_null);
 		segment_info_update(column->segment_info, val, is_null);
 		MemoryContextSwitchTo(row_compressor->per_row_ctx);
@@ -1066,7 +1066,7 @@ decompress_chunk(Oid in_table, Oid out_table)
 		/*
 		 * We need to make sure decompressed_is_nulls is in a defined state. While this
 		 * will get written for normal columns it will not get written for dropped columns
-		 * since dropped columns don't exist in the compressed chunk so we initiallize
+		 * since dropped columns don't exist in the compressed chunk so we initialize
 		 * with true here.
 		 */
 		memset(decompressor.decompressed_is_nulls, true, out_desc->natts);
@@ -1602,7 +1602,7 @@ compress_singlerow(CompressSingleRowState *cr, TupleTableSlot *in_slot)
 	 * Can we do a pass through compression without a full copy?
 	 * full copy needed for multiple values. But we are dealing only with a single value,
 	 * so just need the result of transformation after passing it through the compressor function
-	 * This probably needs a bit of rewrte of the compression algorithm code
+	 * This probably needs a bit of rewrite of the compression algorithm code
 	 */
 	for (int col = 0; col < row_compressor->n_input_columns; col++)
 	{

@@ -211,7 +211,7 @@ from conditions
  group by time_bucket('1week', timec) , location
 offset 10 WITH NO DATA;
 
---using ORDER BY in view defintion
+--using ORDER BY in view definition
 CREATE MATERIALIZED VIEW mat_m1 WITH ( timescaledb.continuous)
 AS
 Select sum(humidity), avg(temperature::int4)
@@ -228,7 +228,7 @@ from conditions
 fetch first 10 rows only WITH NO DATA;
 
 --using locking clauses FOR clause
---all should be disabled. we cannot guarntee locks on the hypertable
+--all should be disabled. we cannot guarantee locks on the hypertable
 CREATE MATERIALIZED VIEW mat_m1 WITH ( timescaledb.continuous)
 AS
 Select sum(humidity), avg(temperature::int4)

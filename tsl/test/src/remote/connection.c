@@ -179,7 +179,7 @@ ts_test_bad_remote_query(PG_FUNCTION_ARGS)
 	PGresult *result;
 
 	conn = get_connection();
-	result = remote_connection_exec(conn, "BADY QUERY SHOULD THROW ERROR");
+	result = remote_connection_exec(conn, "BAD QUERY SHOULD THROW ERROR");
 	TestAssertTrue(PQresultStatus(result) == PGRES_FATAL_ERROR);
 	elog(ERROR, "bad query error thrown from test");
 

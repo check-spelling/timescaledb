@@ -87,7 +87,7 @@ wait_for_pg() {
 
         if [[ $? == 0 ]] ; then
             # this makes the test less flaky, although not
-            # ideal. Apperently, pg_isready is not always a good
+            # ideal. Apparently, pg_isready is not always a good
             # indication of whether the DB is actually ready to accept
             # queries
             sleep 5

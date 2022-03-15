@@ -47,7 +47,7 @@ FROM _timescaledb_internal.dimension_calculate_default_range_open(-10,10, 'int4'
 SELECT assert_equal(-20::bigint, actual_range_start), assert_equal(-10::bigint, actual_range_end)
 FROM _timescaledb_internal.dimension_calculate_default_range_open(-11,10, 'int2') AS res(actual_range_start, actual_range_end);
 
---test that the ends are cut as needed to prevent overflow/undeflow.
+--test that the ends are cut as needed to prevent overflow/underflow.
 
 ---------------
 -- BIGINT

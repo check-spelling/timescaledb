@@ -139,7 +139,7 @@ dist_ddl_state_add_remote_command_list(List *list)
  *
  * There are two ways to execute distributed DDL query: START and END.
  * START executes inside the process utility hook right after the processing is done.
- * END is execution is delayed, and done from ddl_command_start hook invokation.
+ * END is execution is delayed, and done from ddl_command_start hook invocation.
  */
 static inline void
 dist_ddl_state_set_exec_type(DistDDLExecType type)
@@ -512,7 +512,7 @@ dist_ddl_process_grant_on_database(const GrantStmt *stmt)
 	 * node specifically.
 	 *
 	 * If there are multiple databases in the list, we can't determine
-	 * whether they are disributed or not, so we prevent this
+	 * whether they are distributed or not, so we prevent this
 	 * operation.
 	 */
 	dbname = get_database_name(MyDatabaseId);
@@ -902,7 +902,7 @@ dist_ddl_process_unsupported(const ProcessUtilityArgs *args)
  * This function is executed for any Utility/DDL operation and for any
  * PostgreSQL tables been involved in the query.
  *
- * We are particulary interested in distributed hypertables and distributed
+ * We are particularly interested in distributed hypertables and distributed
  * hypertable members (regular hypertables created on a data nodes).
  *
  * In most cases expect and allow only one distributed hypertable per
@@ -1258,7 +1258,7 @@ dist_ddl_drop(List *dropped_objects)
 			case EVENT_TRIGGER_DROP_INDEX:
 			{
 				/*
-				 * Skip here, bacause we expect CASCADE case to be handled in
+				 * Skip here, because we expect CASCADE case to be handled in
 				 * combination with DROP TABLE.
 				 */
 				break;
